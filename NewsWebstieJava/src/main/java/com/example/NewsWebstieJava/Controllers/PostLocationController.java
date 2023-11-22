@@ -20,7 +20,7 @@ public class PostLocationController {
     //method to show all post location
     @GetMapping("locationpage/{location}")
     public String locaitonPage(@PathVariable("location") String location, Model model){
-        List<Post> postList = postLocationService.getAllPostLocation(location);
+        List<Post> postList = postLocationService.getAllPostByLocation(location);
         if(postList == null){
             return "404";
         }else{
@@ -29,6 +29,6 @@ public class PostLocationController {
             model.addAttribute("location", location);
         }
 
-        return "details";
+        return "homeLocation";
     }
 }

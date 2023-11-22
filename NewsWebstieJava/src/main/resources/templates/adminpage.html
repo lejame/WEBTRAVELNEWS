@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
 
@@ -12,13 +12,13 @@
     <title>Admin 2 - Dashboard</title>
 
     <!-- Custom fonts for this template-->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link th:href="@{/vendor/fontawesome-free/css/all.min.css}" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link th:href="@{/css/sb-admin-2.min.css}" rel="stylesheet">
 </head>
 
 <body id="page-top">
@@ -34,7 +34,7 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">Loi Admin <sup>20</sup></div>
+                <div class="sidebar-brand-text mx-3">Admin <sup></sup></div>
             </a>
 
             <!-- Divider -->
@@ -53,10 +53,10 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <h6 class="collapse-header">Quản lý các chức năng</h6>
-                            <a class="collapse-item" href="account.html">Tài khoản</a>
-                            <a class="collapse-item" href="location.html">Địa điểm</a>
-                            <a class="collapse-item" href="cuisine.html">Ẩm thực</a>
-                            <a class="collapse-item" href="adminpage.html">Cẩm nang</a>
+                            <a class="collapse-item" href="#">Tài khoản</a>
+                            <a class="collapse-item" th:href="@{/adminpage/postlocation/{id} (id = ${account.getId()})}">Địa điểm</a>
+                            <a class="collapse-item" href="#">Ẩm thực</a>
+                            <a class="collapse-item" href="#">Cẩm nang</a>
                         </div>
                     </div>
                 </div>
@@ -156,8 +156,8 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Lê Hữu Lợi</span>
-                                <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small" th:text="${account.getFullname()}">Name useraccount </span>
+                                <img class="img-profile rounded-circle" th:src="@{/img/undraw_profile.svg}">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -281,21 +281,21 @@
                     </div>
 
                     <!-- Bootstrap core JavaScript-->
-                    <script src="vendor/jquery/jquery.min.js"></script>
-                    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+                    <script th:src="@{/vendor/jquery/jquery.min.js}"></script>
+                    <script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
 
                     <!-- Core plugin JavaScript-->
-                    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+                    <script th:src="@{/vendor/jquery-easing/jquery.easing.min.js}"></script>
 
                     <!-- Custom scripts for all pages-->
-                    <script src="js/sb-admin-2.min.js"></script>
+                    <script th:src="@{/js/sb-admin-2.min.js}"></script>
 
                     <!-- Page level plugins -->
-                    <script src="vendor/chart.js/Chart.min.js"></script>
+                    <script th:src="@{/vendor/chart.js/Chart.min.js}"></script>
 
                     <!-- Page level custom scripts -->
-                    <script src="js/demo/chart-area-demo.js"></script>
-                    <script src="js/demo/chart-pie-demo.js"></script>
+                    <script th:src="@{/js/demo/chart-area-demo.js}"></script>
+                    <script th:src="@{/js/demo/chart-pie-demo.js}"></script>
                 </div>
             </div>
         </div>

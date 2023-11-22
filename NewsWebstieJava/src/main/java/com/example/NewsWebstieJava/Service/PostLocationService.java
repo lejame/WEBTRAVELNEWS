@@ -1,7 +1,6 @@
 package com.example.NewsWebstieJava.Service;
 
 import com.example.NewsWebstieJava.Models.Post;
-import com.example.NewsWebstieJava.Repository.LocationRepository;
 import com.example.NewsWebstieJava.Repository.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,7 +12,7 @@ import java.util.List;
 public class PostLocationService {
     @Autowired
     PostRepository postRepository;
-    public List<Post> getAllPostLocation(String location){
+    public List<Post> getAllPostByLocation(String location){
         List<Post> postList;
         List<Post> postLocation = new ArrayList<>();
         try{
@@ -24,6 +23,18 @@ public class PostLocationService {
                 if(p.getLocation().equalsIgnoreCase(location)){postLocation.add(p);}
             }
             return postLocation;
+        }catch (Exception e){}
+        return null;
+    }
+
+    public List<Post> getAllPost(){
+        try{
+            List<Post> postList = postRepository.findAll();
+            List<Post> listPostReturn = new ArrayList<>();
+            for(Post p : postList){
+                if(p.getCategory().equalsIgnoreCase("location")){listPostReturn.add(p);}
+            }
+            return listPostReturn;
         }catch (Exception e){}
         return null;
     }
