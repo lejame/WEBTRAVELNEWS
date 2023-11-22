@@ -24,12 +24,12 @@
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-9">
                 <ul class="menu_detail">
-                    <li  class="menu"><a href="home.html" style="color: #0c797a;">TRANG CHỦ</a></li>
-                    <li  class="menu"><a href="introduce.html" style="color: #0c797a;">GIỚI THIỆU</a></li>
-                    <li  class="menu"><a href="details.html" style="color: #0c797a;">ĐỊA ĐIỂM</a></li>
-                    <li  class="menu"><a href="details.html" style="color: #0c797a;">ẨM THỰC</a></li>
-                    <li  class="menu"><a href="details.html" style="color: #0c797a;">CẨM NANG</a></li>
-                    <li  class="menu"><a href="login.html">ĐĂNG NHẬP</a></li>
+                    <li class="menu"><a th:href="@{/home}" style="color: #0c797a;">TRANG CHỦ</a></li>
+                    <li class="menu"><a href="introduce.html" style="color: #0c797a;">GIỚI THIỆU</a></li>
+                    <li class="menu"><a th:href="@{/locationpage/{location} (location = 'all')}" style="color: #0c797a;">ĐỊA ĐIỂM</a></li>
+                    <li class="menu"><a th:href="@{/cuisine}" style="color: #0c797a;">ẨM THỰC</a></li>
+                    <li class="menu"><a href="details.html" style="color: #0c797a;">CẨM NANG</a></li>
+                    <li  class="menu"><a th:href="@{/login}">ĐĂNG NHẬP</a></li>
                 </ul>
             </div>
         </div>

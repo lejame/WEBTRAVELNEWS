@@ -10,7 +10,7 @@
     <link rel="stylesheet" th:href="@{/css/index.css}">
     <link rel="stylesheet" th:href="@{/css/img.css}">
     <link rel="stylesheet" th:href="@{/remixicons/fonts/remixicon.css/}">
-    <title>Document</title>
+    <title>Trang chủ</title>
 </head>
 
 <body>
@@ -22,12 +22,12 @@
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-9">
             <ul class="menu_detail">
-                <li class="menu"><a href="home.html" style="color: #0c797a;">TRANG CHỦ</a></li>
+                <li class="menu"><a th:href="@{/home}" style="color: #0c797a;">TRANG CHỦ</a></li>
                 <li class="menu"><a href="introduce.html" style="color: #0c797a;">GIỚI THIỆU</a></li>
-                <li class="menu"><a href="details.html" style="color: #0c797a;">ĐỊA ĐIỂM</a></li>
-                <li class="menu"><a href="details.html" style="color: #0c797a;">ẨM THỰC</a></li>
+                <li class="menu"><a th:href="@{/locationpage/{location} (location = 'all')}" style="color: #0c797a;">ĐỊA ĐIỂM</a></li>
+                <li class="menu"><a th:href="@{/cuisine}" style="color: #0c797a;">ẨM THỰC</a></li>
                 <li class="menu"><a href="details.html" style="color: #0c797a;">CẨM NANG</a></li>
-                <li  class="menu"><a href="login.html">ĐĂNG NHẬP</a></li>
+                <li  class="menu"><a th:href="@{/login}">ĐĂNG NHẬP</a></li>
             </ul>
         </div>
     </div>
@@ -76,22 +76,19 @@
 <div class="container">
     <div class="container">
         <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-3">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-3" th:each="location : ${locationlist}">
                 <div class="img-cat">
-                    <img th:src="@{/images/ha-noi.jpg}" alt="" class="img_address">
-                    <h4><a href="#" style="color: white"> Chi tiết bài đăng</a></h4>
+                    <img th:src="@{${location.getImages()}}" alt="" class="img_address">
+                    <h4><a th:href="@{/locationpage/{location} (location = ${location.getLocation()})}" style="color: white" th:text="${location.getLocation()}"></a></h4>
                 </div>
             </div>
 
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-3">
-                <div class="img-cat">
-                    <img th:src="@{/images/ha-noi.jpg}" alt="" class="img_address">
-                    <h4><a href="#" style="color: white"> Chi tiết bài đăng</a></h4>
-                </div>
-            </div>
         </div>
     </div>
 </div>
+
+<br>
+
 <div class="container">
     <div class="block-cat">
         <div class="title-home">

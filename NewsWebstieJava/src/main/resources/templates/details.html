@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="css/img.css">
-    <link rel="stylesheet" href="remixicons/fonts/remixicon.css">
-    <link rel="stylesheet" href="css/detail.css">
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+    <link rel="stylesheet" th:href="@{/css/img.css}">
+    <link rel="stylesheet" th:href="@{/remixicons/fonts/remixicon.css}">
+    <link rel="stylesheet" th:href="@{/css/detail.css}">
     <!-- Liên kết CDN cho FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <title>Document</title>
@@ -24,12 +24,12 @@
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-9">
                 <ul class="menu_detail">
-                    <li  class="menu"><a href="home.html" style="color: #0c797a;">TRANG CHỦ</a></li>
-                    <li  class="menu"><a href="introduce.html" style="color: #0c797a;">GIỚI THIỆU</a></li>
-                    <li  class="menu"><a href="details.html" style="color: #0c797a;">ĐỊA ĐIỂM</a></li>
-                    <li  class="menu"><a href="details.html" style="color: #0c797a;">ẨM THỰC</a></li>
-                    <li  class="menu"><a href="details.html" style="color: #0c797a;">CẨM NANG</a></li>
-                    <li  class="menu"><a href="login.html">ĐĂNG NHẬP</a></li>
+                    <li class="menu"><a th:href="@{/home}" style="color: #0c797a;">TRANG CHỦ</a></li>
+                    <li class="menu"><a href="introduce.html" style="color: #0c797a;">GIỚI THIỆU</a></li>
+                    <li class="menu"><a th:href="@{/locationpage/{location} (location = 'all')}" style="color: #0c797a;">ĐỊA ĐIỂM</a></li>
+                    <li class="menu"><a th:href="@{/cuisine}" style="color: #0c797a;">ẨM THỰC</a></li>
+                    <li class="menu"><a href="details.html" style="color: #0c797a;">CẨM NANG</a></li>
+                    <li  class="menu"><a th:href="@{/login}">ĐĂNG NHẬP</a></li>
                 </ul>
             </div>
         </div>
@@ -56,85 +56,36 @@
                     <div class="category-news">
                         <div class="category-news-wrap">
                             <h1 class="single-title">
-                                <span>Địa điểm: Hà Nội</span>
+                                <span th:if="${location == 'all'} ">Địa điểm: Tất cả</span>
+                                <span th:unless="${location == 'all'}" th:text="'Địa điểm: ' + ${location}"></span>
                             </h1>
                             <div class="category-content category-module">
                                 <div class="row">
                                     <div class="col-md-12 col-sm-12 col-xs-12">
-                                        <div class="category-post-item category-module-full">
+                                        <div class="category-post-item category-module-full" th:each="postLocation : ${postList}">
                                             <div class="category-post-item-inner" style="display: flex;">
                                                 <div class="category-post-avatar">
                                                     <a href="">
-                                                        <img src="http://tintucdulich.langsonweb.com/wp-content/uploads/2019/04/Pho-Thin-250x160.jpg "
+                                                        <img th:src="@{${postLocation.getImages()}}"
                                                             alt="">
                                                     </a>
                                                 </div>
                                                 <div>
                                                     <a href="" style="text-decoration: none; color: black">
-                                                        <h3>6 quán phở ngon nức tiếng ở Hà Nội nhất định phải thử một
-                                                            lần</h3>
+                                                        <h3 th:text="${postLocation.getTitle()}"> </h3>
                                                     </a>
                                                     <p>
-                                                        <b><a href="" style="text-decoration: none; color: #009396;">
-                                                                Ẩm thực 4 phương
-                                                            </a></b> - 25/04/2019
+                                                        <b><a href="" style="text-decoration: none; color: #009396;" > Địa điểm nổi bật
+
+                                                            </a></b> <p th:text="'Ngày đăng: ' + ${postLocation.getDate()}"></p>
                                                     </p>
-                                                    <p class="category-post-desc">
+                                                    <p class="category-post-desc" th:text="${postLocation.getContent()}">
                                                         “Ăn phở Hà Nội ở đâu ngon nhất?” có lẽ là câu hỏi của không ít
                                                         du khách khi đến với thủ đô. Và trả lời câu hỏi này cũng chẳng
                                                         hề dễ dàng khi mỗi quán phở lại có...
                                                     </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="category-post-item category-module-full">
-                                            <div class="category-post-item-inner" style="display: flex;">
-                                                <div class="category-post-avatar">
-                                                    <a href="">
-                                                        <img src="http://tintucdulich.langsonweb.com/wp-content/uploads/2019/04/Pho-Thin-250x160.jpg "
-                                                            alt="">
-                                                    </a>
-                                                </div>
-                                                <div>
-                                                    <a href="" style="text-decoration: none; color: black">
-                                                        <h3>6 quán phở ngon nức tiếng ở Hà Nội nhất định phải thử một
-                                                            lần</h3>
-                                                    </a>
-                                                    <p>
-                                                        <b><a href="" style="text-decoration: none; color: #009396;">
-                                                                Ẩm thực 4 phương
-                                                            </a></b> - 25/04/2019
-                                                    </p>
-                                                    <p class="category-post-desc">
-                                                        “Ăn phở Hà Nội ở đâu ngon nhất?” có lẽ là câu hỏi của không ít
-                                                        du khách khi đến với thủ đô. Và trả lời câu hỏi này cũng chẳng
-                                                        hề dễ dàng khi mỗi quán phở lại có...
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="category-post-item category-module-full">
-                                            <div class="category-post-item-inner" style="display: flex;">
-                                                <div class="category-post-avatar">
-                                                    <a href="">
-                                                        <img src="http://tintucdulich.langsonweb.com/wp-content/uploads/2019/04/Pho-Thin-250x160.jpg "
-                                                            alt="">
-                                                    </a>
-                                                </div>
-                                                <div>
-                                                    <a href="" style="text-decoration: none; color: black">
-                                                        <h3>6 quán phở ngon nức tiếng ở Hà Nội nhất định phải thử một
-                                                            lần</h3>
-                                                    </a>
-                                                    <p>
-                                                        <b><a href="" style="text-decoration: none; color: #009396;">
-                                                                Ẩm thực 4 phương
-                                                            </a></b> - 25/04/2019
-                                                    </p>
-                                                    <p class="category-post-desc">
-                                                        “Ăn phở Hà Nội ở đâu ngon nhất?” có lẽ là câu hỏi của không ít
-                                                        du khách khi đến với thủ đô. Và trả lời câu hỏi này cũng chẳng
-                                                        hề dễ dàng khi mỗi quán phở lại có...
+                                                    <p style="color: darkred">
+                                                        Số lượt truy cập: 9
                                                     </p>
                                                 </div>
                                             </div>
@@ -205,7 +156,7 @@
     <div class="container-fluid-footer">
         <div class="footer">
             <footer style="background-color: #0c797a;">
-                <div class="container-fluid" class="footer">
+                <div class="container-fluid">
                     <div class="container">
                         <div class="fv_footer">
                             <div class="logo_footer">

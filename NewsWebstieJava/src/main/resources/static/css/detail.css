@@ -45,9 +45,17 @@ p#breadcrumbs {
 }
 
 .category-post-avatar {
+    margin-right: 20px;
     width: 100%;
+    min-width: 354px;
+    max-width: 354px;
+    height: 220px;
 }
-
+.category-post-avatar img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 .category-post-avatar a {
     width: 100%;
 }

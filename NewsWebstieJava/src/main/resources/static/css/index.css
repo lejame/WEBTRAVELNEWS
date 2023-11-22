@@ -70,6 +70,9 @@ p {
 /* body */
 /* diem du lich */
 .img-cat {
+    height: 225px;
+    width: 300px;
+
     position: relative;
     margin-top: 30px;
     border-radius: 5px;
@@ -131,7 +134,6 @@ a:-webkit-any-link {
 }
 
 .block-cat-item img :hover {
-    background-color: var(--brand);
     color: rgba(229, 0, 0, 0.729);
 }
 
@@ -203,7 +205,6 @@ a:-webkit-any-link {
 }
 
 .social-links a:hover {
-    background-color: var(--brand);
     color: white;
 }
 
