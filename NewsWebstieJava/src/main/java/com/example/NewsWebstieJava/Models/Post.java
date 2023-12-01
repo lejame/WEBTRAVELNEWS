@@ -35,17 +35,12 @@ public class Post {
     @Column(name = "date")
     private Date date;
 
+    @Column(name = "view")
+    private int view;
+
     @Column(name = "author")
     private String author;
 
-    @Column(name ="idauthor", insertable = false, updatable = false)
-    private Integer idauthor;
-    @ManyToOne
-    @JoinColumn(name = "idauthor", referencedColumnName = "id")
-    private Author authorByIdAuthor;
-
-    @OneToOne(mappedBy = "postById")
-    private ViewPost viewPost;
 
     @Override
     public String toString() {
@@ -59,7 +54,7 @@ public class Post {
                 ", images='" + images + '\'' +
                 ", date=" + date +
                 ", author='" + author + '\'' +
-                ", idauthor=" + idauthor +
+                ", view=" + view +
                 '}';
     }
 }

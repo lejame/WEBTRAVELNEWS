@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
 
@@ -18,7 +18,7 @@
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link th:href="@{/css/sb-admin-2.min.css}" rel="stylesheet">
 </head>
 
 <body id="page-top">
@@ -203,24 +203,30 @@
                                     <thead>
                                         <tr>
                                             <th>Image</th>
-                                            <th>Title</th>
+                                            <th>ImageDetails1</th>
+                                            <th>ImageDetails2</th>
                                             <th>Date</th>
+                                            <th>Title</th>
+                                            <th>Summary</th>
                                             <th>Content</th>
-                                            <th>Caterory</th>
+                                            <th>Category</th>
                                             <th>Location</th>
-                                            <th>View</th>
+                                            <th>Author</th>
                                             <th>Actions</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
                                             <th>Image</th>
-                                            <th>Title</th>
+                                            <th>ImageDetails1</th>
+                                            <th>ImageDetails2</th>
                                             <th>Date</th>
+                                            <th>Title</th>
+                                            <th>Summary</th>
                                             <th>Content</th>
-                                            <th>Caterory</th>
+                                            <th>Category</th>
                                             <th>Location</th>
-                                            <th>View</th>
+                                            <th>Author</th>
                                             <th>Actions</th>
                                         </tr>
                                     </tfoot>
@@ -232,13 +238,38 @@
                                             }
                                         </style>
                                         <tr style="position: relative;">
-                                            <td class="input-container"><input type="text"></td>
-                                            <td class="input-container"><input type="text"></td>
-                                            <td class="input-container"><input type="datetime-local" id="datetimePicker"></td>
-                                            <td class="input-container"><textarea></textarea></td>
-                                            <td class="input-container"><input type="text"></td>
-                                            <td class="input-container"><input type="text"></td>
-                                            <td class="input-container"><input type="text"></td>
+                                            <td class="input-container" >
+                                                <input style="width: 200px;" type="file" accept="image/png, image/jpeg" class="btn btn-outline-primary"  name="images">
+                                            </td>
+                                            <td class="input-container" >
+                                                <input style="width: 200px;" type="file" accept="image/png, image/jpeg" class="btn btn-outline-primary"  name="imageDetails1">
+                                            </td>
+                                            <td class="input-container" >
+                                                <input style="width: 200px;" type="file" accept="image/png, image/jpeg" class="btn btn-outline-primary"  name="imageDetails2">
+                                            </td>
+                                            <td class="input-container" ><input type="datetime-local" name="date" id="datetimePicker"></td>
+                                            <td class="input-container" ><input type="text" name="title"></td>
+                                            <td class="input-container" ><input type="text" name="summary"></td>
+                                            <td class="input-container" ><textarea name="content"></textarea></td>
+                                            <td class="input-container" >
+                                                <select class="custom-select" name="category" style="width: 200px;">
+                                                    <option value="location" >Địa điểm nổi bật</option>
+                                                    <option value="cuisine" >Ẩm thực vùng miền</option>
+                                                </select>
+                                            </td>
+                                            <td class="input-container" >
+                                                <select class="custom-select" name="location" style="width: 150px;">
+                                                    <option value="Hà nội">Hà nội</option>
+                                                    <option value="Đà nẵng">Đà nẵng</option>
+                                                    <option value="Hồ chí minh">Hồ chí minh</option>
+                                                    <option value="Tiền giang">Tiền giang</option>
+                                                    <option value="Bình định">Bình định</option>
+                                                    <option value="Đăk lăk">Đăk lăk</option>
+                                                    <option value="Khánh hòa">Khánh hòa</option>
+                                                    <option value="Bình thuận">Bình thuận</option>
+                                                </select>
+                                            </td>
+                                            <td><input type="text" name="author"></td>
                                             <td>
                                                 <div style="justify-content: flex-end; width: fit-content;">
                                                     <button type="button" class="btn btn-success" id="edit_infomation"
@@ -282,21 +313,21 @@
                     </div>
 
                     <!-- Bootstrap core JavaScript-->
-                    <script src="vendor/jquery/jquery.min.js"></script>
-                    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+                    <script th:src="@{/vendor/jquery/jquery.min.js}"></script>
+                    <script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
 
                     <!-- Core plugin JavaScript-->
-                    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+                    <script th:src="@{/vendor/jquery-easing/jquery.easing.min.js}"></script>
 
                     <!-- Custom scripts for all pages-->
-                    <script src="js/sb-admin-2.min.js"></script>
+                    <script th:src="@{/js/sb-admin-2.min.js}"></script>
 
                     <!-- Page level plugins -->
-                    <script src="vendor/chart.js/Chart.min.js"></script>
+                    <script th:src="@{/vendor/chart.js/Chart.min.js}"></script>
 
                     <!-- Page level custom scripts -->
-                    <script src="js/demo/chart-area-demo.js"></script>
-                    <script src="js/demo/chart-pie-demo.js"></script>
+                    <script th:src="@{/js/demo/chart-area-demo.js}"></script>
+                    <script th:src="@{/js/demo/chart-pie-demo.js}"></script>
                 </div>
             </div>
         </div>

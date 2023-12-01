@@ -197,7 +197,7 @@
                         <div class="card-header py-3" style="display: flex; justify-content: space-between;">
                             <h6 class="m-0 font-weight-bold text-primary" style="margin-right: auto;">Dữ liệu của tất cả
                                 tài khoản</h6>
-                            <a href="add.html" class="btn btn-info">Add</a>
+                            <a th:href="@{/adminpage/postlocation/add/{id} (id = ${account.getId()})}" class="btn btn-info">Add</a>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -229,17 +229,20 @@
 <!--                                            <th>Actions</th>-->
 <!--                                        </tr>-->
 <!--                                    </tfoot>-->
-                                    <tbody th:each="post : ${postList}">
-                                        <tr style="position: relative;">
+                                    <tbody >
+                                        <tr th:each="post : ${postList}" style="position: relative; height: 100px">
                                             <td style="min-width: 20px; max-width: 50px;" th:text="${post.getId()}">1</td>
-                                            <td style="min-width: 100px; max-width: 100px;">Ảnh</td>
+                                            <td style="min-width: 100px; width: 200px;">
+                                                <img th:src="@{${post.getImages()}}" style="object-fit: cover; height: 100px; width: 100%;">
+
+                                            </td>
                                             <td style="min-width: 50px; max-width: 200px;" >Địa điểm nổi bật</td>
-                                            <td style="min-width: 50px; max-width: 150px;" th:text="${post.getDate()}">11-12-2003</td>
-                                            <td style="min-width: 50px; max-width: 300px;" th:text="${post.getTitle()}">Du lịch phục hồi và khởi sắc</td>
-                                            <td style="min-width: 100px; max-width: 500px;" th:text="${post.getSummary()}">Theo thống kê của UBND quận Ngũ Hành Sơn, trong 10 tháng năm 2023, di tích danh thắng Ngũ Hành Sơn đón gần 1,4 triệu lượt khách với tổng thu phí tham quan đóng góp cho ngân sách Nhà nước hơn 58,9 tỷ đồng. Đây là tín hiệu vui, cho thấy lĩnh vực dịch vụ, du</td>
-                                            <td style="min-width: 50px; max-width: 200px;" th:text="${post.getLocation()}">Đà nẵng</td>
+                                            <td style="min-width: 50px; max-width: 150px;" th:text="${post.getDate()}">Date</td>
+                                            <td style="min-width: 50px; max-width: 300px;" th:text="${post.getTitle()}">Title</td>
+                                            <td style="min-width: 100px; max-width: 500px;" th:text="${post.getSummary()}">Summary</td>
+                                            <td style="min-width: 50px; max-width: 200px;" th:text="${post.getLocation()}">Location</td>
                                             <td style="min-width: 10px; max-width: 50px;">159</td>
-                                            <td style="min-width: 100px; max-width: 500px;" th:text="${post.getAuthor()}">Trương Anh Ngọc</td>
+                                            <td style="min-width: 100px; max-width: 500px;" th:text="${post.getAuthor()}">Author</td>
                                             <td>
                                                 <div style="justify-content: flex-end; width: fit-content;">
                                                     <button type="button" class="btn btn-success"><a

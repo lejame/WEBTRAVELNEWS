@@ -15,6 +15,23 @@ public class AccountService {
     public Account getAccount(Integer id){
         Optional<Account> account = accountRepository.findById(id);
         return account.orElse(null);
+    }
 
+    public Account saveAccount(Account account){
+        try{
+
+            return accountRepository.save(account);
+        }catch (Exception e){
+            return null;
+        }
+
+    }
+
+    public Account getCodeAccount(String code){
+        try {
+            return accountRepository.getCodeAccount(code);
+        }catch (Exception ex){
+            return null;
+        }
     }
 }
