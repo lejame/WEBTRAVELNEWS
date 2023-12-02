@@ -3,6 +3,7 @@
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
+
 body,
 p {
     font-family: Roboto, sans-serif;
@@ -67,31 +68,6 @@ p {
 
 
 /* body */
-.filter_search_content{
-    width: 50%;
-    height: 10vh;
-    display: flex;
-    justify-content: space-between;
-
-}
-.filter_content{
-    font-size: 1.2em;
-}
-.filter_search_content select{
-    width: 20vh;
-    height: 5vh;
-    transition: all 0.3s ease;
-    font-style: italic; 
-    flex: 1 0 100%;
-    border-radius: 10px;
-}
-.search_content{
-    display: flex;
-    
-}
-.filter_content select option:hover {
-    background-color: rgb(7, 122, 41);
-}
 /* diem du lich */
 .img-cat {
     position: relative;
