@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <title>XIN CHÀO</title>
@@ -43,27 +43,36 @@
                                     </p>
                                 </div>
                             </div>
-                            <form action="#" class="signin-form">
+                            <form th:action="@{/register/account}" id="formRegister"  class="signin-form" method="post">
+
                                 <div class="form-group mb-3">
-                                    <label class="label" for="name">Tài khoản</label>
-                                    <input id="name" type="text" class="form-control" placeholder="Username" required>
+                                    <label class="label" for="name">Họ tên</label>
+                                    <input id="name" name="name" type="text" class="form-control" placeholder="Full name" required>
                                 </div>
+
+                                <div class="form-group mb-3">
+                                    <label class="label" for="email">Tài khoản</label>
+                                    <input id="email" name="email" type="text" class="form-control" placeholder="Email" required>
+                                </div>
+
                                 <div class="form-group mb-3">
                                     <label class="label" for="password">Mật khẩu</label>
-                                    <input id="password" type="password" class="form-control" placeholder="Password" required>
+                                    <input id="password" name="password" type="password" class="form-control" placeholder="Password" required>
                                 </div>
+
                                 <div class="form-group mb-3">
                                     <label class="label" for="confirm-password">Nhập lại mật khẩu</label>
-                                    <input id="confirm-password" type="password" class="form-control" placeholder="Password" required>
+                                    <input id="confirm-password" name="confirmPassword" type="password" class="form-control" placeholder="Password" required>
+                                </div>
+                                <div class="form-group mb-3">
+                                    <h6 class="text-danger" id="text-danger"></h6>
                                 </div>
                                 <div class="form-group">
-                                    <button type="submit" class="form-control btn btn-primary rounded submit px-3"
-                                        onclick="confirm_register()"><a href="javascript:location.reload(true)" style="color: white;">Xác nhận</a></button>
+                                    <button type="submit" id="btn-register" onclick="return confirm_register()"  class="form-control btn btn-primary rounded submit px-3" style="color: white">Đăng ký</button>
                                 </div>
 
                             </form>
-                            <p class="text-center">Quay lại trang đăng nhập? <a data-toggle="tab" href="login.html"
-                                    onclick="login_back()">Đăng nhập</a></p>
+                            <p class="text-center">Quay lại trang đăng nhập? <a  th:href="@{/login}">Đăng nhập</a></p>
                         </div>
                     </div>
                 </div>
@@ -71,16 +80,23 @@
         </div>
     </section>
 
-    <script src="login/js/jquery.min.js"></script>
-    <script src="login/js/popper.js"></script>
-    <script src="login/js/bootstrap.min.js"></script>
-    <script src="login/js/main.js"></script>
+    <script th:src="@{/login/js/jquery.min.js}"></script>
+    <script th:src="@{/login/js/popper.js}"></script>
+    <script th:src="@{/login/js/bootstrap.min.js}"></script>
+    <script th:src="@{/login/js/main.js}"></script>
     <script>
-        function login_back() {
-            location.assign("login.html");
-        }
         function confirm_register() {
-            alert("Đăng ký thành công, chúc mừng bạn!!");
+            var pass = document.getElementById("password").value;
+            var confirmpass = document.getElementById("confirm-password").value;
+
+            if(pass === confirmpass){
+                alert("Đăng ký thành công, vui lòng kiểm tra email để xác thực tài khoản");
+                return true;
+            }else{
+                alert("Mật khẩu xác nhận không trùng khớp");
+                return false;
+            }
+
         }
 
     </script>

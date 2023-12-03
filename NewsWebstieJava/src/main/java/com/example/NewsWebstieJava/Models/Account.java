@@ -32,7 +32,16 @@ public class Account {
     @Column(name = "role")
     private String role;
 
-    @OneToOne(mappedBy = "accountByIdAccount")
-    private Author authorCollection;
+    @Column(name = "code")
+    private String code;
 
+
+
+    public Account(String email, String password, String fullname, String role, String code) {
+        this.email = email;
+        this.password = password;
+        this.fullname = fullname;
+        this.role = role;
+        this.code = code;
+    }
 }
