@@ -23,8 +23,8 @@ public class PostLocationService {
                 if(p.getLocation().equalsIgnoreCase(location)){postLocation.add(p);}
             }
             return postLocation;
-        }catch (Exception e){}
-        return null;
+        }catch (Exception e){return null;}
+
     }
 
     public List<Post> getAllPost(){
@@ -35,7 +35,16 @@ public class PostLocationService {
                 if(p.getCategory().equalsIgnoreCase("location")){listPostReturn.add(p);}
             }
             return listPostReturn;
-        }catch (Exception e){}
-        return null;
+        }catch (Exception e){return null;}
+
+    }
+
+    public boolean updateImagesPath(String images, String images1, String images2, Integer id){
+        try{
+            postRepository.updateImagesPath(images, images1, images2, id);
+            return true;
+        }catch (Exception e){
+            return false;
+        }
     }
 }

@@ -34,7 +34,7 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">Loi Admin <sup>20</sup></div>
+                <div class="sidebar-brand-text mx-3">Admin <sup></sup></div>
             </a>
 
             <!-- Divider -->
@@ -198,14 +198,14 @@
                             <h6 class="m-0 font-weight-bold text-primary">Thêm dữ liệu vào Database</h6>
                         </div>
                         <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
+                            <form th:action="@{/adminpage/postlocation/addPost/{id} (id = ${id})}" method="post" enctype="multipart/form-data" >
+                                <div class="table-responsive">
+                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                        <thead>
                                         <tr>
                                             <th>Image</th>
                                             <th>ImageDetails1</th>
                                             <th>ImageDetails2</th>
-                                            <th>Date</th>
                                             <th>Title</th>
                                             <th>Summary</th>
                                             <th>Content</th>
@@ -214,13 +214,12 @@
                                             <th>Author</th>
                                             <th>Actions</th>
                                         </tr>
-                                    </thead>
-                                    <tfoot>
+                                        </thead>
+                                        <tfoot>
                                         <tr>
                                             <th>Image</th>
                                             <th>ImageDetails1</th>
                                             <th>ImageDetails2</th>
-                                            <th>Date</th>
                                             <th>Title</th>
                                             <th>Summary</th>
                                             <th>Content</th>
@@ -229,8 +228,8 @@
                                             <th>Author</th>
                                             <th>Actions</th>
                                         </tr>
-                                    </tfoot>
-                                    <tbody>
+                                        </tfoot>
+                                        <tbody>
                                         <style>
                                             .input-container {
                                                 top:0;
@@ -247,7 +246,7 @@
                                             <td class="input-container" >
                                                 <input style="width: 200px;" type="file" accept="image/png, image/jpeg" class="btn btn-outline-primary"  name="imageDetails2">
                                             </td>
-                                            <td class="input-container" ><input type="datetime-local" name="date" id="datetimePicker"></td>
+<!--                                            <td class="input-container" ><input type="datetime-local" name="date" id="datetimePicker"></td>-->
                                             <td class="input-container" ><input type="text" name="title"></td>
                                             <td class="input-container" ><input type="text" name="summary"></td>
                                             <td class="input-container" ><textarea name="content"></textarea></td>
@@ -272,14 +271,15 @@
                                             <td><input type="text" name="author"></td>
                                             <td>
                                                 <div style="justify-content: flex-end; width: fit-content;">
-                                                    <button type="button" class="btn btn-success" id="edit_infomation"
-                                                        data-toggle="modal">Add</button>
+                                                    <button type="submit" class="btn btn-success" id="edit_infomation"
+                                                            data-toggle="modal">Add</button>
                                                 </div>
                                             </td>
                                         </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </form>
                             <!-- End of Main Content -->
                         </div>
                         <!-- End of Content Wrapper -->
