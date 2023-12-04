@@ -54,9 +54,8 @@
                         <div class="bg-white py-2 collapse-inner rounded">
                             <h6 class="collapse-header">Quản lý các chức năng</h6>
                             <a class="collapse-item" href="account.html">Tài khoản</a>
-                            <a class="collapse-item" href="locationAdmin.html">Địa điểm</a>
-                            <a class="collapse-item" href="homeCuisine.html">Ẩm thực</a>
-                            <a class="collapse-item" href="adminpage.html">Cẩm nang</a>
+                            <a class="collapse-item" th:href="@{/adminpage/post/{id} (id = ${account.getId()})}">Quản lý bài đăng</a>
+                            <a class="collapse-item" href="adminpage.html">Bài đăng người dùng</a>
                         </div>
                     </div>
                 </div>
@@ -197,7 +196,7 @@
                         <div class="card-header py-3" style="display: flex; justify-content: space-between;">
                             <h6 class="m-0 font-weight-bold text-primary" style="margin-right: auto;">Dữ liệu của tất cả
                                 tài khoản</h6>
-                            <a th:href="@{/adminpage/postlocation/add/{id} (id = ${account.getId()})}" class="btn btn-info">Add</a>
+                            <a th:href="@{/adminpage/post/add/{id} (id = ${account.getId()})}" class="btn btn-info">Add</a>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -246,7 +245,7 @@
                                             <td>
                                                 <div style="justify-content: flex-end; width: fit-content;">
                                                     <button type="button" class="btn btn-success"><a
-                                                            href="update.html" style="color: white; text-decoration: none;">Update</a></button>
+                                                            th:href="@{/adminpage/post/update/{idpost}/{id} (idpost = ${post.getId()}, id = ${account.getId()})}" style="color: white; text-decoration: none;">Update</a></button>
                                                     <button type="button" class="btn btn-danger">Delete</button>
                                                 </div>
                                             </td>

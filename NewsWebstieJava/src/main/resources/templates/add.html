@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Admin 2 - Dashboard</title>
+    <title>Thêm bài viết</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -54,9 +54,8 @@
                         <div class="bg-white py-2 collapse-inner rounded">
                             <h6 class="collapse-header">Quản lý các chức năng</h6>
                             <a class="collapse-item" href="account.html">Tài khoản</a>
-                            <a class="collapse-item" href="locationAdmin.html">Địa điểm</a>
-                            <a class="collapse-item" href="homeCuisine.html">Ẩm thực</a>
-                            <a class="collapse-item" href="adminpage.html">Cẩm nang</a>
+                            <a class="collapse-item" th:href="@{/adminpage/post/{id} (id = ${id})}">Quản lý bài đăng</a>
+                            <a class="collapse-item" href="adminpage.html">Bài đăng người dùng</a>
                         </div>
                     </div>
                 </div>

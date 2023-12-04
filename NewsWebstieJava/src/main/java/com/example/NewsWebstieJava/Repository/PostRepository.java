@@ -13,4 +13,8 @@ public interface PostRepository extends JpaRepository<Post, Integer> {
     @Transactional
     @Query(value = "Update Post p set p.images = :images, p.imagesDetails1 = :images1, p.imagesDetails2 = :images2 where p.id = :id")
     void updateImagesPath(@Param("images") String images, @Param("images1") String images1, @Param("images2") String images2, @Param("id") Integer id);
+
+    @Modifying
+    @Query(value = "update Post p set p.title = ?1, p.summary = ?2, p.content = ?3, p.category = ?4, p.location = ?5, p.author = ?6 where p.id = ?7")
+    void updatePost(String title, String summary, String content, String category, String location, String author, Integer id);
 }

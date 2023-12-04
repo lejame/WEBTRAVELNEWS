@@ -34,4 +34,13 @@ public class AccountService {
             return null;
         }
     }
+
+    public boolean updateEnable(Integer id){
+        try{
+            accountRepository.updateEnableAccount(id);
+            return true;
+        }catch (Exception ex){
+            return false;
+        }
+    }
 }
