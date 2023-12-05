@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.Comparator;
 import java.util.List;
 
 @Controller
@@ -19,8 +20,8 @@ public class PostLocationController {
 
     //method to show all post location
     @GetMapping("locationpage/{location}")
-    public String locaitonPage(@PathVariable("location") String location, Model model){
-        List<Post> postList = postLocationService.getAllPostByLocation(location);
+    private String locaitonPageByProvince(@PathVariable("location") String location, Model model){
+        List<Post> postList = postLocationService.getAllPostByLocation(location).stream().filter(p -> p.getCategory().equalsIgnoreCase("location")).sorted(Comparator.comparing(Post::getDate).reversed()).toList();
         if(postList == null){
             return "404";
         }else{
@@ -29,6 +30,14 @@ public class PostLocationController {
             model.addAttribute("location", location);
         }
 
+        return "homeLocation";
+    }
+
+    @GetMapping("location")
+    private String locationPage(Model model){
+        List<Post> postList = postLocationService.getAllPost().stream().filter(p -> p.getCategory().equalsIgnoreCase("location")).sorted(Comparator.comparing(Post::getDate).reversed()).toList();
+        model.addAttribute("postList", postList);
+        model.addAttribute("location", "Toàn quốc");
         return "homeLocation";
     }
 }

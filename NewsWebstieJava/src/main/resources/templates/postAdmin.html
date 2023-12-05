@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Quản lý bài đăng địa điểm</title>
+    <title>Quản lý bài đăng</title>
 
     <!-- Custom fonts for this template-->
     <link th:href="@{/vendor/fontawesome-free/css/all.min.css}" rel="stylesheet" type="text/css">
@@ -31,11 +31,11 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" th:href="@{/adminpage/post/{id} (id = ${account.getId()})}">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">Bài đăng địa điểm</div>
+                <div class="sidebar-brand-text mx-3">Quản lý bài viết</div>
             </a>
 
             <!-- Divider -->
@@ -53,7 +53,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <h6 class="collapse-header">Quản lý các chức năng</h6>
-                            <a class="collapse-item" href="account.html">Tài khoản</a>
+                            <a class="collapse-item" th:href="@{/adminpage/{id} (id = ${account.getId()})}">Tài khoản</a>
                             <a class="collapse-item" th:href="@{/adminpage/post/{id} (id = ${account.getId()})}">Quản lý bài đăng</a>
                             <a class="collapse-item" href="adminpage.html">Bài đăng người dùng</a>
                         </div>
@@ -112,14 +112,31 @@
                     </button>
 
                     <!-- Topbar Search -->
-                    <form
-                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                    <form th:action="@{/adminpage/post/{id}/search/ (id = ${account.getId()})}" class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                         <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                            <input type="text" name="keySearch" class="form-control bg-light border-0 small" placeholder="Search for..."
                                 aria-label="Search" aria-describedby="basic-addon2">
                             <div class="input-group-append">
-                                <button class="btn btn-primary" type="button">
+                                <button class="btn btn-primary" type="submit">
                                     <i class="fas fa-search fa-sm"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <form th:action="@{/adminpage/post/{id}/filter/option (id = ${account.getId()})}" class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                        <div class="input-group">
+                            <select name="optionFilter" class="custom-select">
+                                <option value="choose">Lọc theo tiêu chí</option>
+                                <option value="viewASC">Theo lượt xem cao -> thấp</option>
+                                <option value="viewDESC">Theo lượt xem thấp -> cao</option>
+                                <option value="dateASC">Theo ngày đăng cao -> thấp</option>
+                                <option value="dateDESC">Theo ngày đăng thấp -> cao</option>
+
+                            </select>
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="submit">
+                                    Lọc
                                 </button>
                             </div>
                         </div>
@@ -174,7 +191,7 @@
                                     Activity Log
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="login.html" data-toggle="modal"
+                                <a class="dropdown-item" th:href="@{/home}" data-toggle="modal"
                                     data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
@@ -195,7 +212,21 @@
                     <div class="card shadow mb-4">
                         <div class="card-header py-3" style="display: flex; justify-content: space-between;">
                             <h6 class="m-0 font-weight-bold text-primary" style="margin-right: auto;">Dữ liệu của tất cả
-                                tài khoản</h6>
+                                bài đăng</h6>
+                            <form th:action="@{/adminpage/post/{id}/filter/category (id = ${account.getId()})}" method="get" class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                                <div class="input-group">
+                                    <select name="optionCategory" class="custom-select">
+                                        <option value="choose">Lọc bài viết</option>
+                                        <option value="location">Bài viết địa điểm</option>
+                                        <option value="cuisine">Bài viết ẩm thực</option>
+                                    </select>
+                                    <div class="input-group-append">
+                                        <button class="btn btn-primary" type="submit">
+                                            Xem bài viết
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
                             <a th:href="@{/adminpage/post/add/{id} (id = ${account.getId()})}" class="btn btn-info">Add</a>
                         </div>
                         <div class="card-body">
@@ -235,18 +266,26 @@
                                                 <img th:src="@{${post.getImages()}}" style="object-fit: cover; height: 100px; width: 100%;">
 
                                             </td>
-                                            <td style="min-width: 50px; max-width: 200px;" >Địa điểm nổi bật</td>
+                                            <td style="min-width: 50px; max-width: 200px;" th:if="${post.getCategory()}=='location'">Địa điểm nổi bật</td>
+                                            <td style="min-width: 50px; max-width: 200px;" th:unless="${post.getCategory()}=='location'">Ẩm thực vùng miền</td>
                                             <td style="min-width: 50px; max-width: 150px;" th:text="${post.getDate()}">Date</td>
                                             <td style="min-width: 50px; max-width: 300px;" th:text="${post.getTitle()}">Title</td>
                                             <td style="min-width: 100px; max-width: 500px;" th:text="${post.getSummary()}">Summary</td>
                                             <td style="min-width: 50px; max-width: 200px;" th:text="${post.getLocation()}">Location</td>
-                                            <td style="min-width: 10px; max-width: 50px;">159</td>
+                                            <td style="min-width: 10px; max-width: 50px;" th:text="${post.getView()}">View</td>
                                             <td style="min-width: 100px; max-width: 500px;" th:text="${post.getAuthor()}">Author</td>
                                             <td>
                                                 <div style="justify-content: flex-end; width: fit-content;">
-                                                    <button type="button" class="btn btn-success"><a
-                                                            th:href="@{/adminpage/post/update/{idpost}/{id} (idpost = ${post.getId()}, id = ${account.getId()})}" style="color: white; text-decoration: none;">Update</a></button>
-                                                    <button type="button" class="btn btn-danger">Delete</button>
+                                                    <button type="button" class="btn btn-success">
+                                                        <a th:href="@{/adminpage/post/update/{idpost}/{id} (idpost = ${post.getId()}, id = ${account.getId()})}" style="color: white; text-decoration: none;">
+                                                            Update
+                                                        </a>
+                                                    </button>
+                                                    <button type="button" class="btn btn-danger" onclick="alert('Xóa bài viết thành công')">
+                                                        <a th:href="@{/adminpage/post/deletepost/{idpost}/{id} (idpost = ${post.getId()}, id = ${account.getId()})}" style="color: white; text-decoration: none;">
+                                                            Delete
+                                                        </a>
+                                                    </button>
                                                 </div>
                                             </td>
                                         </tr>
@@ -308,4 +347,13 @@
 
 </body>
 
+<!--<script th:inline="javascript">-->
+<!--    function deleteMessage(idpost , id){-->
+<!--        var x = confirm('Bạn có chắc muốn xóa bài viết');-->
+<!--        if(x===true){-->
+<!--            window.location.assign('https:localhost:8080/adminpage/post/delete/' + idpost + '/' + id);-->
+
+<!--        }-->
+<!--    }-->
+<!--</script>-->
 </html>

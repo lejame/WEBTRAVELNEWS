@@ -1,5 +1,6 @@
 package com.example.NewsWebstieJava.Service;
 
+import com.example.NewsWebstieJava.Models.Post;
 import com.example.NewsWebstieJava.Repository.PostRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.List;
 
 @Service
 public class AdminPostService {
@@ -41,6 +43,13 @@ public class AdminPostService {
         }catch (Exception e){
             return  false;
         }
+    }
 
+    public List<Post> getPostByKeySearch(String key){
+        try{
+            return postRepository.getPostByKeySearch(key);
+        }catch (Exception e){
+            return null;
+        }
     }
 }

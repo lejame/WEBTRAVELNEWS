@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Admin 2 - Dashboard</title>
+    <title>Quản lý tải khoản</title>
 
     <!-- Custom fonts for this template-->
     <link th:href="@{/vendor/fontawesome-free/css/all.min.css}" rel="stylesheet" type="text/css">
@@ -174,7 +174,7 @@
                                     Activity Log
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="login.html" data-toggle="modal"
+                                <a class="dropdown-item" th:href="@{/home}" data-toggle="modal"
                                     data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
@@ -196,45 +196,39 @@
                         <div class="card-header py-3" style="display: flex; justify-content: space-between;">
                             <h6 class="m-0 font-weight-bold text-primary" style="margin-right: auto;">Dữ liệu của tất cả
                                 tài khoản</h6>
-                            <a href="add.html" class="btn btn-info">Add</a>
+
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>Image</th>
-                                            <th>Title</th>
-                                            <th>Date</th>
-                                            <th>Content</th>
-                                            <th>Caterory</th>
-                                            <th>Location</th>
-                                            <th>View</th>
-                                            <th>Actions</th>
-
+                                            <th>Id</th>
+                                            <th>Fullname</th>
+                                            <th>Email</th>
+                                            <th>Role</th>
+                                            <th>Status</th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                            <th>Image</th>
-                                            <th>Title</th>
-                                            <th>Date</th>
-                                            <th>Content</th>
-                                            <th>Caterory</th>
-                                            <th>Location</th>
-                                            <th>View</th>
-                                            <th>Actions</th>
+                                            <th>Id</th>
+                                            <th>Fullname</th>
+                                            <th>Email</th>
+                                            <th>Role</th>
+                                            <th>Status</th>
+                                            <th>Action</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
-                                        <tr style="position: relative;">
-                                            <td style="min-width: 20px; max-width: 20px;">1</td>
-                                            <td style="min-width: 100px; max-width: 100px;">Hà Nội</td>
-                                            <td style="min-width: 200px; max-width: 300px;">lạnh lắm</td>
-                                            <td style="min-width: 50px; max-width: 70px;">21/10/2023</td>
-                                            <td style="min-width: 100px; max-width: 300px;">link ảnh</td>
-                                            <td style="min-width: 100px; max-width: 300px;">link ảnh</td>
-                                            <td style="min-width: 100px; max-width: 300px;">link ảnh</td>
+                                        <tr style="position: relative;" th:each="acc : ${accountList}">
+                                            <td style="min-width: 20px; max-width: 20px;" th:text="${acc.getId()}">Id</td>
+                                            <td style="min-width: 100px; max-width: 100px;" th:text="${acc.getFullname()}">Name</td>
+                                            <td style="min-width: 200px; max-width: 300px;" th:text="${acc.getEmail()}">Email</td>
+                                            <td style="min-width: 50px; max-width: 70px;" th:text="${acc.getRole()}">Role</td>
+                                            <td class="alert-success" style="min-width: 100px; max-width: 300px;" th:if="${acc.getEnable() == 1}" th:text="Enable">Status</td>
+                                            <td class="alert-danger" style="min-width: 100px; max-width: 300px;" th:unless="${acc.getEnable() == 1}" th:text="Disable">Status</td>
                                             <td>
                                                 <div style="justify-content: flex-end; width: fit-content;">
                                                     <button type="button" class="btn btn-success"

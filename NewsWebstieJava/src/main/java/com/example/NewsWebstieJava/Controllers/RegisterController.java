@@ -52,7 +52,8 @@ public class RegisterController {
     public RedirectView gotoPage(@Param("code") String code, RedirectAttributes redirectAttributes){
         Account account = accountService.getCodeAccount(code);
         if(account == null){
-            return new RedirectView("/login");
+            redirectAttributes.addAttribute("id", account.getId());
+            return new RedirectView("/homeuser/{id}");
         }
 
         account.setEnable(1);

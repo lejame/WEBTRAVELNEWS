@@ -21,12 +21,29 @@
                     style="color: #2d0707;"> Việt Nam</span></a>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-9">
-            <ul class="menu_detail">
-                <li class="menu"><a th:href="@{/home}" style="color: #0c797a;">TRANG CHỦ</a></li>
-                <li class="menu"><a th:href="@{/location}" style="color: #0c797a;">ĐỊA ĐIỂM</a></li>
-                <li class="menu"><a th:href="@{/cuisine}" style="color: #0c797a;">ẨM THỰC</a></li>
-                <li  class="menu"><a th:href="@{/login}">ĐĂNG NHẬP</a></li>
-            </ul>
+            <div class="row " id="menu">
+                <div class="col-md-3">
+                    <a th:href="@{/home}" style="color: #0c797a;">TRANG CHỦ</a>
+                </div>
+                <div class="col-md-3">
+                    <a th:href="@{/location}" style="color: #0c797a;">ĐỊA ĐIỂM</a>
+                </div>
+                <div class="col-md-3">
+                    <a th:href="@{/cuisine}" style="color: #0c797a;">ẨM THỰC</a>
+                </div>
+                <div class="col-md-3">
+                    <div class="dropdown" style="display: flex; justify-content: space-between;">
+                        <div></div>
+                        <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
+                            <img style="width: 30px;height: 30px" class="img-profile rounded-circle" th:src="@{/img/undraw_profile.svg}">
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-user"></i>Post</a></li>
+                            <li><a class="dropdown-item" href="#">Log out</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -44,7 +61,7 @@
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <a href="#"><img th:src="@{/images/late.jpg}" alt="Los Angeles" class="d-block carousel-img"
-                                style="width:100%"></a>
+                                 style="width:100%"></a>
                 <div class="carousel-caption">
                     <h3>Los Angeles</h3>
                     <p>We had such a great time in LA!</p>
@@ -95,7 +112,7 @@
         <div class="conte-block-cat">
             <div class="block-cat-item">
                 <a href="#"><img th:src="@{/images/camnang_dulich1.jpg}" class="img_manual"
-                                alt="10 điểm du lịch Việt Nam được truyền thông nước ngoài ca ngợi">
+                                 alt="10 điểm du lịch Việt Nam được truyền thông nước ngoài ca ngợi">
                     <div class="info-post">
                         <h4>10 điểm du lịch Việt Nam được truyền thông nước ngoài ca ngợi</h4>
                         <p>25-04-2020</p>
@@ -114,7 +131,7 @@
     <div class="footer">
         <footer style="background-color: #0c797a;">
             <div class="container-fluid" >
-<!--                class = "footer"-->
+                <!--                class = "footer"-->
                 <div class="container">
                     <div class="fv_footer">
                         <div class="logo_footer">

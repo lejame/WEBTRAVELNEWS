@@ -12,7 +12,7 @@
     <link rel="stylesheet" th:href="@{/css/detail.css}">
     <!-- Liên kết CDN cho FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <title>Document</title>
+    <title>Bài viết địa điểm</title>
 </head>
 
 <body>
@@ -24,40 +24,13 @@
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8">
                 <ul class="menu_detail">
-                    <li class="menu"><a style="color: #0c797a;" asp-action="Home" asp-controller="Home">TRANG CHỦ</a></li>
-                    <li class="menu"><a  style="color: #0c797a;" asp-action="Location" asp-controller="Home">ĐỊA ĐIỂM</a></li>
-                    <li class="menu"><a style="color: #0c797a;" asp-action="Cuisine" asp-controller="Home">ẨM THỰC</a></li>
+                    <li class="menu"><a th:href="@{/home}" style="color: #0c797a;" >TRANG CHỦ</a></li>
+                    <li class="menu"><a th:href="@{/location}" style="color: #0c797a;" >ĐỊA ĐIỂM</a></li>
+                    <li class="menu"><a th:href="@{/cuisine}" style="color: #0c797a;" >ẨM THỰC</a></li>
 
                 </ul>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-1">
-                <ul>
-                    <li class="nav-item dropdown no-arrow">
-                        <a class="nav-link dropdown-toggle btn-sm" href="#" id="userDropdown" role="button"
-                           data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 12px;">
-                            <span class="mr-2 d-none d-lg-inline text-gray-600 small" style="font-size: 12px;"> </span>
-                            <img class="img-profile rounded-circle" src="" style="width: 36px; height: 36px;"> 
-                            <!-- để hình vào src -->
-                        </a>
-                        <!-- Dropdown - User Information -->
-                        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                            <a class="dropdown-item" style="font-size: 12px;">
-                                <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Profile
-                            </a>
-                            <a class="dropdown-item" href="#" style="font-size: 12px;">
-                                <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i> Settings
-                            </a>
-                            <a class="dropdown-item" href="#" style="font-size: 12px;">
-                                <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i> Activity Log
-                            </a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" data-toggle="modal" data-target="#logoutModal" style="font-size: 12px;" asp-action="Login" asp-controller="Login">
-                                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> Logout
-                            </a>
-                        </div>
-                    </li>
-                </ul>
-            </div>
+
         </div>
     </div>
     <div class="bar_breadcrumb">
@@ -66,7 +39,7 @@
                 <span>
                     <span>
                         <i class='fas fa-home fa-xs' style='color:#0e6c55'></i>
-                        <a href="home.html">Trang chủ</a>
+                        <a th:href="@{/home}">Trang chủ</a>
                         <i class='fas fa-angle-double-right fa-sm' style='color:#14947b'></i>
                         <span class="breadcrumb_last" aria-current="page">Đà Nẵng</span>
                     </span>
@@ -83,19 +56,11 @@
                         <div class="category-news-wrap">
                             <div style="display: flex;justify-content: space-between;">
                                 <h1 class="single-title">
-                                    <span>Địa điểm: Hà Nội</span>
+                                    <span th:text="'Địa điểm: ' + ${location}">Địa điểm</span>
                                 </h1>
-                                <div class="filter_content" style="display: flex; justify-content: flex-start;">
-                                    <select name=""  style="margin-right: 5px; border-radius: 5px;">
-                                        <option value="">Địa điểm</option>
-                                        <option value="">Sài Gòn</option>
-                                        <option value="">Tiền Giang</option>
-                                    </select>
-                                    <br>
-                                    <select name="" style="border-radius: 5px;">
-                                        <option value="">Ẩm thực</option>
-                                        <option value="">Cơm tấm</option>
-                                        <option value="">Hủ tiếu</option>
+                                <div class="form-group">
+                                    <select class="custom-select">
+                                        <option>Hehe</option>
                                     </select>
                                 </div>
                                 <div class="search_content">
@@ -134,16 +99,11 @@
                                                     <p th:text="'Ngày đăng: ' + ${postLocation.getDate()}"></p>
                                                     </p>
                                                     <p class="category-post-desc"
-                                                        th:text="${postLocation.getContent()}">
-                                                        “Ăn phở Hà Nội ở đâu ngon nhất?” có lẽ là câu hỏi của không ít
-                                                        du khách khi đến với thủ đô. Và trả lời câu hỏi này cũng chẳng
-                                                        hề dễ dàng khi mỗi quán phở lại có...
+                                                        th:text="${postLocation.getSummary()}">
+                                                        Summary
                                                     </p>
 
-                                                    <p style="color: darkred"
-                                                        th:text="'Số lượt xem: ' + ${postLocation.getView()}">
-
-                                                    <p style="color: darkred" th:text="'Số lượt xem: ' + ${postLocation.getView()}">
+                                                    <p class="text-danger" th:text="'Số lượt xem: ' + ${postLocation.getView()}">
 
 
                                                     </p>

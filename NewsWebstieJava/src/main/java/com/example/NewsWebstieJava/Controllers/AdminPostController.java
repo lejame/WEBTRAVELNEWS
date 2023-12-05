@@ -26,6 +26,7 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
+import java.util.stream.Collectors;
 
 
 @Controller
@@ -159,5 +160,73 @@ public class AdminPostController {
         adminPostService.updatePost(idpost, title, summary, content, category, location, author);
         redirectAttributes.addAttribute("id", id);
         return new RedirectView("/adminpage/post/{id}");
+    }
+
+    @RequestMapping(value = "/deletepost/{idpost}/{id}", method = RequestMethod.GET)
+    private RedirectView deletePostById(RedirectAttributes redirectAttributes,@PathVariable("idpost") Integer idpost, @PathVariable("id") Integer id){
+        try{
+            // delete reference
+            postRepository.deleteById(idpost);
+            redirectAttributes.addAttribute("id", id);
+            return new RedirectView("/adminpage/post/{id}");
+        }catch (Exception e){
+            return new RedirectView("/eroor");
+        }
+    }
+
+    @GetMapping("/{id}/search/")
+    private String searchPost(Model model, @RequestParam("keySearch") String keySearch, @PathVariable("id") Integer id){
+        List<Post> postList = adminPostService.getPostByKeySearch("%" + keySearch + "%");
+        if(postList!=null){
+            Account account = accountService.getAccount(id);
+            model.addAttribute("postList", postList);
+            model.addAttribute("account", account);
+            return "postAdmin";
+        }
+        return "404";
+    }
+
+    @RequestMapping(value = "/{id}/filter/category", method = RequestMethod.GET)
+    private String filterByCategory(Model model, @RequestParam("optionCategory") String category, @PathVariable("id") Integer id){
+
+        List<Post> postList = postService.getAllPost().stream().filter(p -> p.getCategory().equalsIgnoreCase(category)).toList();
+
+        if(postList != null){
+            Account account = accountService.getAccount(id);
+            model.addAttribute("postList", postList);
+            model.addAttribute("account", account);
+            return "postAdmin";
+        }
+        return "404";
+    }
+
+    @RequestMapping(value = "/{id}/filter/option")
+    private String filterByOption(Model model, @RequestParam("optionFilter") String optionFilter, @PathVariable("id") Integer id){
+        if(optionFilter.equalsIgnoreCase("viewDESC")){
+            List<Post> postList = postService.getAllPost().stream().sorted(Comparator.comparingInt(Post::getView)).toList();
+            Account account = accountService.getAccount(id);
+            model.addAttribute("postList", postList);
+            model.addAttribute("account", account);
+            return "postAdmin";
+        }else if(optionFilter.equalsIgnoreCase("viewASC")){
+            List<Post> postList = postService.getAllPost().stream().sorted(Comparator.comparing(Post::getView).reversed()).toList();
+            Account account = accountService.getAccount(id);
+            model.addAttribute("postList", postList);
+            model.addAttribute("account", account);
+            return "postAdmin";
+        }else if(optionFilter.equalsIgnoreCase("dateDESC")){
+            List<Post> postList = postService.getAllPost().stream().sorted(Comparator.comparing(Post::getDate)).toList();
+            Account account = accountService.getAccount(id);
+            model.addAttribute("postList", postList);
+            model.addAttribute("account", account);
+            return "postAdmin";
+        }else if(optionFilter.equalsIgnoreCase("dateASC")){
+            List<Post> postList = postService.getAllPost().stream().sorted(Comparator.comparing(Post::getDate).reversed()).toList();
+            Account account = accountService.getAccount(id);
+            model.addAttribute("postList", postList);
+            model.addAttribute("account", account);
+            return "postAdmin";
+        }
+        return "404";
     }
 }
