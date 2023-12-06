@@ -22,4 +22,12 @@ public interface PostRepository extends JpaRepository<Post, Integer> {
 
     @Query(value = "select p from Post p where p.title like :key or p.summary like :key or p.content like :key")
     List<Post> getPostByKeySearch(@Param("key") String key);
+
+    @Query(value = "select p from Post p where p.category = 'location' and p.title like :key or " +
+            "p.category = 'location' and p.summary like :key")
+    List<Post> getPostLocationByKeySearch(@Param("key") String key);
+
+    @Query(value = "select p from Post p where p.category = 'cuisine' and p.title like :key or " +
+            "p.category = 'cuisine' and p.summary like :key")
+    List<Post> getPostCuisineByKeySearch(@Param("key") String key);
 }

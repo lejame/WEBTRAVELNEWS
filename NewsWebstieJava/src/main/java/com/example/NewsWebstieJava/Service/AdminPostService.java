@@ -52,4 +52,17 @@ public class AdminPostService {
             return null;
         }
     }
+
+    public List<Post> getPostCategoryByKeySearch(String category , String key){
+        try{
+            if(category.equals("location")){
+                return postRepository.getPostLocationByKeySearch(key);
+            }else{
+                return postRepository.getPostCuisineByKeySearch(key);
+            }
+
+        }catch (Exception e){
+            return null;
+        }
+    }
 }

@@ -1,6 +1,7 @@
 package com.example.NewsWebstieJava.Controllers;
 
 import com.example.NewsWebstieJava.Models.Post;
+import com.example.NewsWebstieJava.Service.AdminPostService;
 import com.example.NewsWebstieJava.Service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,13 +13,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/")
 public class PostLocationController {
     @Autowired
     PostService postService;
-
+    @Autowired
+    AdminPostService adminPostService;
     //method to show all post location
     @GetMapping("locationpage/{location}")
     private String locaitonPageByProvince(@PathVariable("location") String location, Model model){
@@ -92,9 +95,7 @@ public class PostLocationController {
 
     @GetMapping("location/search")
     private String searchLocationPage(Model model, @RequestParam("keySearch") String keySearch){
-        List<Post> postList = postService.getAllPost().stream()
-                .filter(p -> p.getCategory().equals("location") && p.getTitle().contains(keySearch))
-                .toList();
+        List<Post> postList = adminPostService.getPostCategoryByKeySearch("location", "%" + keySearch + "%");
 
         model.addAttribute("postList", postList);
         model.addAttribute("location", "Toàn quốc");
