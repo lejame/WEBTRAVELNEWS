@@ -113,7 +113,7 @@ public class AdminPostController {
     }
     @GetMapping("/update/{idpost}/{id}")
     private String updatePage(@PathVariable("idpost") Integer idpost, @PathVariable("id") Integer id, Model model){
-        Optional<Post> post = postRepository.findById(id);
+        Optional<Post> post = postRepository.findById(idpost);
         List<Location> locationList = locationRepository.findAll();
         for(Location l : locationList){
             if(l.getLocation().equalsIgnoreCase(post.get().getLocation())){

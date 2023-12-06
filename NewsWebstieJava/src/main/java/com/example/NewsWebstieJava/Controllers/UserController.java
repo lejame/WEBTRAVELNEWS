@@ -26,4 +26,9 @@ public class UserController {
         model.addAttribute("locationlist", locationList);
         return "homeUser";
     }
+
+    @GetMapping("post/{id}")
+    private String postPage(Model model, @PathVariable("id") Integer id){
+        return "postUser";
+    }
 }

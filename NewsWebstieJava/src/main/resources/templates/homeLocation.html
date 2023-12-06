@@ -59,21 +59,39 @@
                                     <span th:text="'Địa điểm: ' + ${location}">Địa điểm</span>
                                 </h1>
                                 <div class="form-group">
-                                    <select class="custom-select">
-                                        <option>Hehe</option>
-                                    </select>
+                                    <form method="get" th:action="@{/location/filter}">
+                                        <select name="option" style="height: 30px; width: 150px; border-radius: 8px">
+                                            <option value="choose">Lọc theo tiêu chí</option>
+                                            <option value="view">Bài viết nổi bật</option>
+                                            <option value="date">Bài viết mới nhất</option>
+                                        </select>
+                                        <select name="province" style="height: 30px; width: 160px; border-radius: 8px">
+                                            <option value="choose">Lọc theo tỉnh thành</option>
+                                            <option value="Hà nội">Hà nội</option>
+                                            <option value="Đà nẵng">Đà nẵng</option>
+                                            <option value="Hồ chí minh">Hồ chí minh</option>
+                                            <option value="Tiền giang">Tiền giang</option>
+                                            <option value="Bình định">Bình định</option>
+                                            <option value="Đăk lăk">Đăk lăk</option>
+                                            <option value="Khánh hòa">Khánh hòa</option>
+                                            <option value="Bình thuận">Bình thuận</option>
+                                        </select>
+                                        <button class="btn btn-outline-primary" type="submit">Xem kết quả</button>
+                                    </form>
                                 </div>
                                 <div class="search_content">
-                                    <div>
-                                        <input type="text" class="form-control bg-light border-0 small"
-                                            placeholder="Search for..." aria-label="Search"
-                                            aria-describedby="basic-addon2">
-                                    </div>
-                                    <div class="input-group-append">
-                                        <button class="btn btn-primary" type="button">
-                                            <i class="fas fa-search fa-sm"></i>
-                                        </button>
-                                    </div>
+                                    <form>
+                                        <div>
+                                            <input name="keySearch" type="text" class="form-control bg-light border-0 small"
+                                                   placeholder="Search for..." aria-label="Search"
+                                                   aria-describedby="basic-addon2">
+                                        </div>
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="submit">
+                                                <i class="fas fa-search fa-sm"></i>
+                                            </button>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                             <div class="category-content category-module">
@@ -83,12 +101,12 @@
                                             th:each="postLocation : ${postList}">
                                             <div class="category-post-item-inner" style="display: flex;">
                                                 <div class="category-post-avatar">
-                                                    <a href="">
+                                                    <a th:href="@{/details/{idpost} (idpost = ${postLocation.getId()})}">
                                                         <img th:src="@{${postLocation.getImages()}}" alt="">
                                                     </a>
                                                 </div>
                                                 <div>
-                                                    <a href="" style="text-decoration: none; color: black">
+                                                    <a th:href="@{/details/{idpost} (idpost = ${postLocation.getId()})}" style="text-decoration: none; color: black">
                                                         <h3 th:text="${postLocation.getTitle()}"> </h3>
                                                     </a>
                                                     <p>
@@ -96,6 +114,7 @@
                                                                 Địa điểm nổi bật
 
                                                             </a></b>
+                                                    <p class="text-primary" th:text="'Tỉnh thành: ' + ${postLocation.getLocation()}">Province</p>
                                                     <p th:text="'Ngày đăng: ' + ${postLocation.getDate()}"></p>
                                                     </p>
                                                     <p class="category-post-desc"

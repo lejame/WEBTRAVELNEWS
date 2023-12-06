@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Comparator;
 import java.util.List;
@@ -16,12 +17,12 @@ import java.util.List;
 @RequestMapping("/")
 public class PostLocationController {
     @Autowired
-    PostService postLocationService;
+    PostService postService;
 
     //method to show all post location
     @GetMapping("locationpage/{location}")
     private String locaitonPageByProvince(@PathVariable("location") String location, Model model){
-        List<Post> postList = postLocationService.getAllPostByLocation(location).stream().filter(p -> p.getCategory().equalsIgnoreCase("location")).sorted(Comparator.comparing(Post::getDate).reversed()).toList();
+        List<Post> postList = postService.getAllPostByLocation(location).stream().filter(p -> p.getCategory().equalsIgnoreCase("location")).sorted(Comparator.comparing(Post::getDate).reversed()).toList();
         if(postList == null){
             return "404";
         }else{
@@ -35,7 +36,66 @@ public class PostLocationController {
 
     @GetMapping("location")
     private String locationPage(Model model){
-        List<Post> postList = postLocationService.getAllPost().stream().filter(p -> p.getCategory().equalsIgnoreCase("location")).sorted(Comparator.comparing(Post::getDate).reversed()).toList();
+        List<Post> postList = postService.getAllPost().stream()
+                .filter(p -> p.getCategory().equalsIgnoreCase("location"))
+                .sorted(Comparator.comparing(Post::getDate).reversed()).toList();
+
+        model.addAttribute("postList", postList);
+        model.addAttribute("location", "Toàn quốc");
+        return "homeLocation";
+    }
+
+    @GetMapping("location/filter")
+    private String filterCuisinePage(Model model, @RequestParam("option") String option
+            , @RequestParam("province") String province){
+        if(option.equalsIgnoreCase("choose")){
+            List<Post> postList = postService.getAllPost().stream()
+                    .filter(p -> p.getCategory().equalsIgnoreCase("location") && p.getLocation().equalsIgnoreCase(province))
+                    .toList();
+            model.addAttribute("postList", postList);
+            model.addAttribute("location", province);
+        }else if(province.equalsIgnoreCase("choose")){
+            if(option.equalsIgnoreCase("view")){
+                List<Post> postList = postService.getAllPost().stream()
+                        .filter(p -> p.getCategory().equalsIgnoreCase("location"))
+                        .sorted(Comparator.comparing(Post::getView).reversed())
+                        .toList();
+                model.addAttribute("postList", postList);
+                model.addAttribute("location", "Toàn quốc");
+            }else{
+                List<Post> postList = postService.getAllPost().stream()
+                        .filter(p -> p.getCategory().equalsIgnoreCase("location"))
+                        .sorted(Comparator.comparing(Post::getDate).reversed())
+                        .toList();
+                model.addAttribute("postList", postList);
+                model.addAttribute("location", "Toàn quốc");
+            }
+        }else if(!option.equals("choose") && !province.equals("choose")){
+            if(option.equals("date")){
+                List<Post> postList = postService.getAllPost().stream()
+                        .filter(p -> p.getCategory().equalsIgnoreCase("location") && p.getLocation().equalsIgnoreCase(province))
+                        .sorted(Comparator.comparing(Post::getDate).reversed())
+                        .toList();
+                model.addAttribute("postList", postList);
+                model.addAttribute("location", province);
+            }else{
+                List<Post> postList = postService.getAllPost().stream()
+                        .filter(p -> p.getCategory().equalsIgnoreCase("location") && p.getLocation().equalsIgnoreCase(province))
+                        .sorted(Comparator.comparing(Post::getView).reversed())
+                        .toList();
+                model.addAttribute("postList", postList);
+                model.addAttribute("location", province);
+            }
+        }
+        return "homeLocation";
+    }
+
+    @GetMapping("location/search")
+    private String searchLocationPage(Model model, @RequestParam("keySearch") String keySearch){
+        List<Post> postList = postService.getAllPost().stream()
+                .filter(p -> p.getCategory().equals("location") && p.getTitle().contains(keySearch))
+                .toList();
+
         model.addAttribute("postList", postList);
         model.addAttribute("location", "Toàn quốc");
         return "homeLocation";
