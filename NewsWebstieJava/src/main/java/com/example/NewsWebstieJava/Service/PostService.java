@@ -29,8 +29,7 @@ public class PostService {
 
     public List<Post> getAllPost(){
         try{
-            List<Post> postList = postRepository.findAll();
-            return postList;
+            return postRepository.findAll();
         }catch (Exception e){return null;}
 
     }
@@ -42,5 +41,12 @@ public class PostService {
         }catch (Exception e){
             return false;
         }
+    }
+
+    public boolean updateViewPost(Integer idpost){
+        try{
+            postRepository.updateViewPost(idpost);
+            return true;
+        }catch (Exception e){return false;}
     }
 }

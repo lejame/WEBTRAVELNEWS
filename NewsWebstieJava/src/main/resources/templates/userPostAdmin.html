@@ -55,7 +55,7 @@
                         <h6 class="collapse-header">Quản lý các chức năng</h6>
                         <a class="collapse-item" th:href="@{/adminpage/{id} (id = ${account.getId()})}">Tài khoản</a>
                         <a class="collapse-item" th:href="@{/adminpage/post/{id} (id = ${account.getId()})}">Quản lý bài đăng</a>
-                        <a class="collapse-item" href="adminpage.html">Bài đăng người dùng</a>
+                        <a class="collapse-item" th:href="@{/adminpage/userpost/{id} (id = ${account.getId()})}">Bài đăng người dùng</a>
                     </div>
                 </div>
             </div>
@@ -231,10 +231,10 @@
                                     <td>
                                         <div style="justify-content: flex-end; width: fit-content;" th:if="${uspost.getStatus() == 0}">
                                             <button type="button" class="btn btn-success" onclick="alert('Phê duyệt thành công')">
-                                                <a class="btn-success">Phê duyệt</a>
+                                                <a th:href="@{/adminpage/userpost/acceptance/{idpost}/{id} (id =${id}, idpost = ${uspost.getId()})}" class="btn-success">Phê duyệt</a>
                                             </button>
                                             <button type="button" class="btn btn-danger" onclick="alert('Hủy bài viết thành công')">
-                                                <a class="btn-danger">Hủy bỏ</a>
+                                                <a th:href="@{/adminpage/userpost/cancle/{idpost}/{id} (id =${id}, idpost = ${uspost.getId()})}" class="btn-danger">Hủy bỏ</a>
                                             </button>
                                             <button type="button" class="btn btn-primary">
                                                 <a class="btn-primary">Xem chi tiết</a>
@@ -243,7 +243,7 @@
                                         </div>
                                         <div style="justify-content: flex-end; width: fit-content;" th:if="${uspost.getStatus() == 1}">
                                             <button type="button" class="btn btn-danger" onclick="alert('Huỷ bài viết thành công')">
-                                                <a class="btn-danger">Hủy bỏ</a>
+                                                <a th:href="@{/adminpage/userpost/cancle/{idpost}/{id} (id =${id}, idpost = ${uspost.getId()})}" class="btn-danger">Hủy bỏ</a>
                                             </button>
                                             <button type="button" class="btn btn-primary">
                                                 <a class="btn-primary">Xem chi tiết</a>

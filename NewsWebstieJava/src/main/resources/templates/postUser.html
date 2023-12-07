@@ -55,7 +55,7 @@
                 </a>
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="home.html">Home</a>
+                        <a class="collapse-item" th:href="@{/homeuser/{id} (id = ${id})}">Home</a>
                     </div>
                 </div>
             </li>
@@ -144,45 +144,58 @@
                             </h6>
                         </div>
                         <div class="container">
-                            <form>
+                            <form th:action="@{/postSuccess/{id} (id = ${id})}" method="post" enctype="multipart/form-data">
                                 <div class="input-group">
                                     <label for="title">Title</label>
-                                    <input type="text" id="title" required>
+                                    <input name="title" type="text" id="title" required>
                                 </div>
                                 <div class="input-group">
                                     <label for="content">Content</label>
-                                    <textarea name=""  cols="30" rows="10"></textarea> required>
+                                    <textarea style="border-radius: 8px" name="content"  cols="30" rows="10"></textarea> required>
                                 </div>
                                 <div class="input-group">
                                     <label for="summary">Summary</label>
-                                    <textarea name="" id="summary" cols="30" rows="2" required></textarea>
+                                    <textarea style="border-radius: 8px" name="summary" id="summary" cols="30" rows="2" required></textarea>
                                 </div>
                                 <div class="input-group">
                                     <label for="location">Location</label>
-                                    <select  id="location" required>
-                                        <option value="">location</option>
+                                    <select class="custom-select" name="location" id="location"
+                                            style="width: 200px;">
+                                        <option value="choose">Chọn tỉnh thành</option>
+                                        <option value="Hà nội">Hà nội</option>
+                                        <option value="Đà nẵng">Đà nẵng</option>
+                                        <option value="Hồ chí minh">Hồ chí minh</option>
+                                        <option value="Tiền giang">Tiền giang</option>
+                                        <option value="Bình định">Bình định</option>
+                                        <option value="Đăk lăk">Đăk lăk</option>
+                                        <option value="Khánh hòa">Khánh hòa</option>
+                                        <option value="Bình thuận">Bình thuận</option>
                                     </select>
                                 </div>
                                 <div class="input-group">
                                     <label for="category">Category</label>
-                                    <select id="category" required>
-                                        <option value="">category</option>
+                                    <select name="category" style="width: 200px;" class="custom-select" id="category" required>
+                                        <option value="choose">Chọn loại bài viết</option>
+                                        <option value="location" >Địa điểm nổi bật</option>
+                                        <option value="cuisine" >Ẩm thực vùng miền</option>
                                     </select>
                                 </div>
                                 <div class="input-group">
                                     <label for="imageHomes">Image Homes</label>
-                                    <input type="file" id="imageHomes" required>
+                                    <input name="imageHome" class="btn btn-outline-primary" type="file" id="imageHomes" required>
                                 </div>
                                 <div class="input-group">
                                     <label for="imageDetails1">Image Details 1</label>
-                                    <input type="file" id="imageDetails1" required>
+                                    <input name="imageDetails1" class="btn btn-outline-primary" type="file" id="imageDetails1" required>
                                 </div>
                                 <div class="input-group">
                                     <label for="imageDetails2">Image Details 2</label>
-                                    <input type="file" id="imageDetails2" required>
+                                    <input name="imageDetails2" class="btn btn-outline-primary" type="file" id="imageDetails2" required>
                                 </div>
                                 <div class="input-group submit_btn">
-                                    <input type="button" value="Post">
+                                    <button class="btn btn-outline-primary" type="submit" style="margin-top: 10px" onclick="alert('Đăng bài thành công. Bài viết của bạn sẽ được phê duyệt trong khoản thời gian sớm nhất')">
+                                        Đăng bài
+                                    </button>
                                 </div>
                             </form>
                         </div>
@@ -210,7 +223,7 @@
                                     session.</div>
                                 <div class="modal-footer">
                                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                                    <a class="btn btn-primary" href="login.html">Logout</a>
+                                    <a class="btn btn-primary" th:href="@{/home}">Logout</a>
                                 </div>
                             </div>
                         </div>
@@ -236,6 +249,8 @@
             </div>
         </div>
     </div>
+
+
 </body>
 
 </html>

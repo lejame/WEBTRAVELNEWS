@@ -27,4 +27,22 @@ public class UserPost {
 
     @Column(name = "status")
     private Integer status;
+
+    public UserPost(Integer iduser, String email, String nameuser, Integer status) {
+        this.iduser = iduser;
+        this.email = email;
+        this.nameuser = nameuser;
+        this.status = status;
+    }
+
+    @Override
+    public String toString() {
+        return "UserPost{" +
+                "id=" + id +
+                ", iduser=" + iduser +
+                ", email='" + email + '\'' +
+                ", nameuser='" + nameuser + '\'' +
+                ", status=" + status +
+                '}';
+    }
 }

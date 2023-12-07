@@ -23,6 +23,7 @@ public class ReadingDetailsController {
     @GetMapping("details/{idpost}")
     public String detailsPage(@PathVariable("idpost") Integer idpost, Model model){
         Optional<Post> post = postRepository.findById(idpost);
+        postService.updateViewPost(idpost);
         model.addAttribute("post", post.get());
         return "reading_details";
     }

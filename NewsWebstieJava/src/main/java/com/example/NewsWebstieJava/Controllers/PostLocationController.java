@@ -41,7 +41,7 @@ public class PostLocationController {
     private String locationPage(Model model){
         List<Post> postList = postService.getAllPost().stream()
                 .filter(p -> p.getCategory().equalsIgnoreCase("location"))
-                .sorted(Comparator.comparing(Post::getDate).reversed()).toList();
+                .sorted(Comparator.comparing(Post::getId).reversed()).toList();
 
         model.addAttribute("postList", postList);
         model.addAttribute("location", "Toàn quốc");

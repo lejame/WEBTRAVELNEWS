@@ -100,7 +100,8 @@ public class AdminPostController {
         post.setImages(imagesPath);
         post.setImagesDetails1(imagesDt1Path);
         post.setImagesDetails2(imagesDt2Path);
-        System.out.println(postService.updateImagesPath(post.getImages(), post.getImagesDetails1(), post.getImagesDetails2(), post.getId()) + "id: " + post.getId());
+
+        postService.updateImagesPath(post.getImages(), post.getImagesDetails1(), post.getImagesDetails2(), post.getId());
 
         FileUploadUtils.saveFile("src/main/resources/static/images/" + category, post.getId() + "_" + StringUtils.cleanPath(Objects.requireNonNull(images.getOriginalFilename())), images);
         FileUploadUtils.saveFile("src/main/resources/static/images/" + category, post.getId() + "_DT1_" + StringUtils.cleanPath(Objects.requireNonNull(imagesDetails1.getOriginalFilename())), imagesDetails1);
