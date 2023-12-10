@@ -20,6 +20,9 @@ public class Location {
     @Column(name = "location")
     private String location;
 
-    @Column(name = "images")
-    private String images;
+    @Column(name = "imageslocation")
+    private String imagesLocation;
+
+    @Column(name = "imagescuisine")
+    private String imagesCuisine;
 }

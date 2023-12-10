@@ -20,13 +20,13 @@ public class Post {
     @Column(name = "location")
     private String location;
 
-    @Column(name = "title")
+    @Column(name = "title", length = 1000)
     private String title;
 
-    @Column(name = "content")
+    @Column(name = "content", length = 2555)
     private String content;
 
-    @Column(name = "summary")
+    @Column(name = "summary", length = 1500)
     private String summary;
 
     @Column(name = "imagesHome")

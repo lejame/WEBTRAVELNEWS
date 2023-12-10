@@ -35,13 +35,17 @@ public class Account {
     @Column(name = "code")
     private String code;
 
+    @Column(name = "enable")
+    private int enable;
 
 
-    public Account(String email, String password, String fullname, String role, String code) {
+
+    public Account(String email, String password, String fullname, String role, String code, int enable) {
         this.email = email;
         this.password = password;
         this.fullname = fullname;
         this.role = role;
         this.code = code;
+        this.enable = enable;
     }
 }

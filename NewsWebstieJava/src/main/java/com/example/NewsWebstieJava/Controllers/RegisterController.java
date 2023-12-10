@@ -40,7 +40,7 @@ public class RegisterController {
                                         @RequestParam("name") String name,
                                         HttpServletRequest request) throws MessagingException, UnsupportedEncodingException {
         Account account = accountService.saveAccount(new Account(email, password, name, "user",
-                RandomStringUtils.randomAlphanumeric(32)));
+                RandomStringUtils.randomAlphanumeric(32), 0));
 
         if(account != null){
             register(account, getSiteURL(request));
@@ -52,9 +52,12 @@ public class RegisterController {
     public RedirectView gotoPage(@Param("code") String code, RedirectAttributes redirectAttributes){
         Account account = accountService.getCodeAccount(code);
         if(account == null){
-            return new RedirectView("/login");
+            redirectAttributes.addAttribute("id", account.getId());
+            return new RedirectView("/homeuser/{id}");
         }
 
+        account.setEnable(1);
+        accountService.updateEnable(account.getId());
         return new RedirectView("/home");
     }
     private String getSiteURL(HttpServletRequest request) {

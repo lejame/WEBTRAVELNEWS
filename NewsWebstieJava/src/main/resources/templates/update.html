@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
 
@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Admin 2 - Dashboard</title>
+    <title>Chỉnh sửa bài viết</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -18,7 +18,7 @@
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link th:href="@{/css/sb-admin-2.min.css}" rel="stylesheet">
 </head>
 
 <body id="page-top">
@@ -34,7 +34,7 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">Loi Admin <sup>20</sup></div>
+                <div class="sidebar-brand-text mx-3">Cập nhập bài viết</div>
             </a>
 
             <!-- Divider -->
@@ -54,9 +54,8 @@
                         <div class="bg-white py-2 collapse-inner rounded">
                             <h6 class="collapse-header">Quản lý các chức năng</h6>
                             <a class="collapse-item" href="account.html">Tài khoản</a>
-                            <a class="collapse-item" href="locationAdmin.html">Địa điểm</a>
-                            <a class="collapse-item" href="homeCuisine.html">Ẩm thực</a>
-                            <a class="collapse-item" href="adminpage.html">Cẩm nang</a>
+                            <a class="collapse-item" th:href="@{/adminpage/post/{id} (id = ${id})}">Quản lý bài đăng</a>
+                            <a class="collapse-item" href="adminpage.html">Bài đăng người dùng</a>
                         </div>
                     </div>
                 </div>
@@ -157,7 +156,7 @@
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Lê Hữu Lợi</span>
-                                <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
+                                <img class="img-profile rounded-circle" th:src="@{/img/undraw_profile.svg}">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -198,33 +197,38 @@
                             <h6 class="m-0 font-weight-bold text-primary">Cập nhật</h6>
                         </div>
                         <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
+                            <form th:action="@{/adminpage/post/updatepost/{idpost}/{id} (idpost =${idpost} ,id = ${id})}" method="post" enctype="multipart/form-data">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                        <thead>
                                         <tr>
                                             <th>Image</th>
+                                            <th>ImageDetails1</th>
+                                            <th>ImageDetails2</th>
                                             <th>Title</th>
-                                            <th>Date</th>
+                                            <th>Summary</th>
                                             <th>Content</th>
-                                            <th>Caterory</th>
+                                            <th>Category</th>
                                             <th>Location</th>
-                                            <th>View</th>
+                                            <th>Author</th>
                                             <th>Actions</th>
                                         </tr>
-                                    </thead>
-                                    <tfoot>
+                                        </thead>
+                                        <tfoot>
                                         <tr>
                                             <th>Image</th>
+                                            <th>ImageDetails1</th>
+                                            <th>ImageDetails2</th>
                                             <th>Title</th>
-                                            <th>Date</th>
+                                            <th>Summary</th>
                                             <th>Content</th>
-                                            <th>Caterory</th>
+                                            <th>Category</th>
                                             <th>Location</th>
-                                            <th>View</th>
+                                            <th>Author</th>
                                             <th>Actions</th>
                                         </tr>
-                                    </tfoot>
-                                    <tbody>
+                                        </tfoot>
+                                        <tbody>
                                         <style>
                                             .input-container {
                                                 top:0;
@@ -232,23 +236,49 @@
                                             }
                                         </style>
                                         <tr style="position: relative;">
-                                            <td class="input-container"><input type="text"></td>
-                                            <td class="input-container"><input type="text"></td>
-                                            <td class="input-container"><input type="datetime-local" id="datetimePicker"></td>
-                                            <td class="input-container"><textarea></textarea></td>
-                                            <td class="input-container"><input type="text"></td>
-                                            <td class="input-container"><input type="text"></td>
-                                            <td class="input-container"><input type="text"></td>
+                                            <td class="input-container" >
+                                                <input th:value="${post.getImages()}" style="width: 200px;" type="file" accept="image/png, image/jpeg" class="btn btn-outline-primary"  name="images" >
+                                            </td>
+                                            <td class="input-container" >
+                                                <input style="width: 200px;" type="file" accept="image/png, image/jpeg" class="btn btn-outline-primary"  name="imageDetails1">
+                                            </td>
+                                            <td class="input-container" >
+                                                <input style="width: 200px;" type="file" accept="image/png, image/jpeg" class="btn btn-outline-primary"  name="imageDetails2">
+                                            </td>
+
+                                            <td class="input-container" ><input type="text" th:value="${post.getTitle()}"  name="title"></td>
+                                            <td class="input-container" ><input type="text" th:value="${post.getSummary()}" name="summary"></td>
+                                            <td class="input-container" ><textarea th:text="${post.getContent()}" name="content"></textarea></td>
+                                            <td class="input-container" >
+                                                <select th:if="${post.getCategory() == 'location'}" class="custom-select" name="category" style="width: 200px;">
+                                                    <option value="location" >Địa điểm nổi bật</option>
+                                                    <option value="cuisine" >Ẩm thực vùng miền</option>
+                                                </select>
+                                                <select th:unless="${post.getCategory() == 'location'}" class="custom-select" name="category" style="width: 200px;">
+                                                    <option value="cuisine" >Ẩm thực vùng miền</option>
+                                                    <option value="location" >Địa điểm nổi bật</option>
+                                                </select>
+                                            </td>
+                                            <td class="input-container" >
+                                                <select class="custom-select" name="location" style="width: 150px;">
+                                                    <option th:value="${post.getLocation()}" th:text="${post.getLocation()}"></option>
+                                                    <option th:each="l : ${locationList}" th:value="${l.getLocation()}" th:text="${l.getLocation()}"></option>
+                                                </select>
+                                            </td>
+                                            <td><input type="text" name="author" th:value="${post.getAuthor()}"></td>
                                             <td>
                                                 <div style="justify-content: flex-end; width: fit-content;">
-                                                    <button type="button" class="btn btn-success" id="edit_infomation"
-                                                        data-toggle="modal">Update</button>
+                                                    <button type="submit" class="btn btn-success" id="edit_infomation"
+                                                            onclick="alert('Cập nhập bài viết thành công')">
+                                                        Update
+                                                    </button>
                                                 </div>
                                             </td>
                                         </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </form>
                             <!-- End of Main Content -->
                         </div>
                         <!-- End of Content Wrapper -->
@@ -282,21 +312,21 @@
                     </div>
 
                     <!-- Bootstrap core JavaScript-->
-                    <script src="vendor/jquery/jquery.min.js"></script>
-                    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+                    <script th:src="@{/vendor/jquery/jquery.min.js}"></script>
+                    <script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
 
                     <!-- Core plugin JavaScript-->
-                    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+                    <script th:src="@{/vendor/jquery-easing/jquery.easing.min.js}"></script>
 
                     <!-- Custom scripts for all pages-->
-                    <script src="js/sb-admin-2.min.js"></script>
+                    <script th:src="@{/js/sb-admin-2.min.js}"></script>
 
                     <!-- Page level plugins -->
-                    <script src="vendor/chart.js/Chart.min.js"></script>
+                    <script th:src="@{/vendor/chart.js/Chart.min.js}"></script>
 
                     <!-- Page level custom scripts -->
-                    <script src="js/demo/chart-area-demo.js"></script>
-                    <script src="js/demo/chart-pie-demo.js"></script>
+                    <script th:src="@{/js/demo/chart-area-demo.js}"></script>
+                    <script th:src="@{/js/demo/chart-pie-demo.js}"></script>
                 </div>
             </div>
         </div>

@@ -33,9 +33,9 @@ public class LoginController {
         else if(Objects.equals(account.getRole(), "admin")){
             redirectAttributes.addAttribute("id", account.getId());
             return new RedirectView("/adminpage/{id}");
-        }else if (Objects.equals(account.getRole(), "user")){
+        }else if (Objects.equals(account.getRole(), "user") && account.getEnable() == 1){
             redirectAttributes.addAttribute("id", account.getId());
-            return new RedirectView("/adminpage/{id}");
+            return new RedirectView("/homeuser/{id}");
         }
         return new RedirectView("/login");
     }
