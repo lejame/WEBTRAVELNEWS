@@ -1,9 +1,11 @@
 package com.example.NewsWebstieJava.Controllers;
 
 import com.example.NewsWebstieJava.Models.Post;
+import com.example.NewsWebstieJava.Repository.PostRepository;
 import com.example.NewsWebstieJava.Service.AdminPostService;
 import com.example.NewsWebstieJava.Service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,29 +21,33 @@ import java.util.stream.Collectors;
 @RequestMapping("/")
 public class PostLocationController {
     @Autowired
+    PostRepository postRepository;
+    @Autowired
     PostService postService;
     @Autowired
     AdminPostService adminPostService;
     //method to show all post location
     @GetMapping("locationpage/{location}")
     private String locaitonPageByProvince(@PathVariable("location") String location, Model model){
-        List<Post> postList = postService.getAllPostByLocation(location).stream().filter(p -> p.getCategory().equalsIgnoreCase("location")).sorted(Comparator.comparing(Post::getDate).reversed()).toList();
-        if(postList == null){
-            return "404";
-        }else{
+        List<Post> postList = postRepository.findAll().stream()
+                .filter(p -> p.getCategory().equals("location") && p.getLocation().equals(location))
+                .collect(Collectors.toList());
 
-            model.addAttribute("postList", postList);
-            model.addAttribute("location", location);
-        }
+        model.addAttribute("postList", postList);
+        model.addAttribute("location", location);
 
         return "homeLocation";
     }
 
     @GetMapping("location")
-    private String locationPage(Model model){
-        List<Post> postList = postService.getAllPost().stream()
-                .filter(p -> p.getCategory().equalsIgnoreCase("location"))
-                .sorted(Comparator.comparing(Post::getId).reversed()).toList();
+    private String locationPage(Model model, @RequestParam(value = "pageIndex", defaultValue = "1") Integer pageIndex){
+//        List<Post> postList = postService.getAllPost().stream()
+//                .filter(p -> p.getCategory().equalsIgnoreCase("location"))
+//                .sorted(Comparator.comparing(Post::getId).reversed()).toList();
+        Page<Post> postList = postService.getPostPage(pageIndex, "location");
+
+        model.addAttribute("totalPage", postList.getTotalPages());
+        model.addAttribute("currentPage", pageIndex);
 
         model.addAttribute("postList", postList);
         model.addAttribute("location", "Toàn quốc");

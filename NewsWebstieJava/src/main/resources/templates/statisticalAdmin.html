@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Admin 2 - Dashboard</title>
+    <title>Báo cáo thống kê</title>
 
     <!-- Custom fonts for this template-->
     <link th:href="@{/vendor/fontawesome-free/css/all.min.css}" rel="stylesheet" type="text/css">
@@ -37,7 +37,7 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">Loi Admin <sup>20</sup></div>
+                <div class="sidebar-brand-text mx-3">Báo cáo thống kê</div>
             </a>
 
             <!-- Divider -->
@@ -60,7 +60,7 @@
                             <a class="collapse-item" th:href="@{/adminpage/{id} (id = ${account.getId()})}">Tài khoản</a>
                             <a class="collapse-item" th:href="@{/adminpage/post/{id} (id = ${account.getId()})}">Quản lý bài đăng</a>
                             <a class="collapse-item" th:href="@{/adminpage/userpost/{id} (id = ${account.getId()})}">Bài đăng người dùng</a>
-                            <a class="collapse-item" th:href="@{/adminpage/userpost/{id} (id = ${account.getId()})}">Báo cáo thống kê</a>
+                            <a class="collapse-item" th:href="@{/adminpage/statistical/{id} (id = ${account.getId()})}">Báo cáo thống kê</a>
                         </div>
                     </div>
                 </div>
@@ -82,13 +82,15 @@
                 </a>
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Login Screens:</h6>
-                        <a class="collapse-item" href="login.html">Login</a>
-                        <a class="collapse-item" href="register.html">Register</a>
-                        <a class="collapse-item" href="home.html">Home</a>
-                        <div class="collapse-divider"></div>
-                        <h6 class="collapse-header">Other Pages:</h6>
-                        <a class="collapse-item" href="404.html">404 Page</a>
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <h6 class="collapse-header">Login Screens:</h6>
+                            <a class="collapse-item" th:href="@{/login}">Login</a>
+                            <a class="collapse-item" th:href="@{/register}">Register</a>
+                            <a class="collapse-item" th:href="@{/home}">Home</a>
+                            <div class="collapse-divider"></div>
+                            <h6 class="collapse-header">Other Pages:</h6>
+                            <a class="collapse-item" th:href="@{/error}">404 Page</a>
+                        </div>
                     </div>
                 </div>
             </li>
@@ -160,7 +162,7 @@
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Lê Hữu Lợi</span>
-                                <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
+                                <img class="img-profile rounded-circle" th:src="@{/img/undraw_profile.svg}">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -190,16 +192,22 @@
                 <!-- End of Topbar -->
                 <!-- Thêm phần này -->
                 <div class="container">
-                    <select name="" id="" class="custom-select" style="width: 10em;">
-                        <option value="">Bài viết</option>
-                        <option value="">Lượt truy cập</option>
-                    </select>
-                    <button class="btn btn-outline-primary" style="height: 35px;"><i class="fas fa-search fa-fw"></i></button>
+                    <form th:action="@{/adminpage/statistical/{id}/chartBy (id = ${account.getId()})}">
+                        <select name="optionChart" class="custom-select" style="width: 10em; margin-right: 10px;">
+                            <option value="all">Tất cả</option>
+                            <option value="location">Bài viết địa điểm</option>
+                            <option value="cuisine">Bài viết ẩm thực</option>
+                        </select>
+                        <button type="submit" class="btn btn-outline-primary" style="height: 35px;">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </form>
                 </div>
 
-                <div class="container" style="display: flex;">
-                    <div id="donutchart" style="width: 900px; height: 500px;"></div>
-                    <div id="columnchart_material" style="width: 800px; height: 500px;"></div>
+                <div class="container" style="display: flex; flex-direction: column">
+                    <div id="donutchart" style="width: 100%; height: 500px;"></div>
+                    <hr>
+                    <div id="columnchart_material" style="width: 100%; height: 500px;"></div>
                 </div>
                 <!-- hết  -->
             </div>
@@ -228,49 +236,53 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <a  class="btn btn-primary" href="login.html">Logout</a>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script th:src="@{/vendor/jquery/jquery.min.js}"></script>
+    <script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script th:src="@{/vendor/jquery-easing/jquery.easing.min.js}"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
+    <script th:src="@{/js/sb-admin-2.min.js}"></script>
 
     <!-- Page level plugins -->
-    <script src="vendor/chart.js/Chart.min.js"></script>
+    <script th:src="@{/vendor/chart.js/Chart.min.js}"></script>
 
     <!-- Page level custom scripts -->
-    <script src="js/demo/chart-area-demo.js"></script>
-    <script src="js/demo/chart-pie-demo.js"></script>
+    <script th:src="@{/js/demo/chart-area-demo.js}"></script>
+    <script th:src="@{/js/demo/chart-pie-demo.js}"></script>
 
 </body>
 <!-- code js trong này -->
-<script type="text/javascript">
+<script type="text/javascript" th:inline="javascript">
     google.charts.load("current", { packages: ["corechart"] });
     google.charts.setOnLoadCallback(drawChart);
     function drawChart() {
+
         var data = google.visualization.arrayToDataTable([
-            ['Tỉnh thành', 'Địa điểm'],
-            ['Bình Định', 11],
-            ['Hồ Chí Minh', 2],
-            ['Tiền Giang', 2],
-            ['Bình Thuận', 2],
-            ['Khánh Hòa', 7], // Added comma after each array
-            ['Phú Yên', 7],
-            ['Đắk Lắk', 6]
+            ['Province', 'Địa điểm'],
+            ['Bình Định', /*[[${listView.get('Bình Định')}]]*/],
+            ['Hồ Chí Minh', /*[[${listView.get('Hồ Chí Minh')}]]*/],
+            ['Tiền Giang', /*[[${listView.get('Tiền Giang')}]]*/],
+            ['Bình Thuận', /*[[${listView.get('Bình Thuận')}]]*/],
+            ['Khánh Hòa', /*[[${listView.get('Khánh Hòa')}]]*/],
+            ['Hà Nội', /*[[${listView.get('Hà Nội')}]]*/],
+            ['Đắk Lắk', /*[[${listView.get('Đăk Lăk')}]]*/],
+            ['Đà Nẵng', /*[[${listView.get('Đà Nẵng')}]]*/]
         ]);
 
+
+        console.log(data);
         var options = {
-            title: 'Tỉnh thành',
-            pieHole: 0.4,
+            title: 'Số lượng người dùng truy cập bài viết của các tỉnh thành ',
+            pieHole: 1,
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
@@ -284,15 +296,19 @@
     function drawChart() {
         var data = google.visualization.arrayToDataTable([
             ['Tỉnh', 'Địa điểm', 'Ẩm thực'],
-            ['Bình định', 1000, 400],
-            ['Hồ Chí Minh', 1170, 460],
-            ['Tiền Giang', 660, 1120],
-            ['Bình Thuận', 1030, 540]
+            ['Bình Định', [[${listPostLocation.get('Bình Định')}]] , [[${listPostCuisine.get('Bình Định')}]]],
+            ['Hồ Chí Minh', [[${listPostLocation.get('Hồ Chí Minh')}]], [[${listPostCuisine.get('Hồ Chí Minh')}]]],
+            ['Tiền Giang', [[${listPostLocation.get('Tiền Giang')}]], [[${listPostCuisine.get('Tiền Giang')}]]],
+            ['Bình Thuận', [[${listPostLocation.get('Bình Thuận')}]], [[${listPostCuisine.get('Bình Thuận')}]]],
+            ['Khánh Hòa', [[${listPostLocation.get('Khánh Hòa')}]], [[${listPostCuisine.get('Khánh Hòa')}]]],
+            ['Hà Nội', [[${listPostLocation.get('Hà Nội')}]], [[${listPostCuisine.get('Hà Nội')}]]],
+            ['Đắk Lắk', [[${listPostLocation.get('Đăk Lăk')}]], [[${listPostCuisine.get('Đăk Lăk')}]]],
+            ['Đà Nẵng', [[${listPostLocation.get('Đà Nẵng')}]], [[${listPostCuisine.get('Đà Nẵng')}]]]
         ]);
-
+        console.log(data);
         var options = {
             chart: {
-                title: 'Biểu đồ thống kế số lượng truy cập của người dùng',
+                title: 'Biểu đồ thống kế số lượng bài viết của người dùng',
             }
         };
 

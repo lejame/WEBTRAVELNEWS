@@ -12,7 +12,7 @@
     <link rel="stylesheet" th:href="@{/css/detail.css}">
     <!-- Liên kết CDN cho FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <title>Document</title>
+    <title>Chi tiết bài viết</title>
 </head>
 
 <body>
@@ -54,10 +54,13 @@
                     <h3 class="text-success" th:text="'Địa điểm: ' +     ${post.getLocation()}">Location</h3>
                     <p class="text-danger" th:text="'Ngày đăng: ' + ${post.getDate()}">Ngày đăng: 19/11/2023</p>
                     <p  th:text="'Tác giả: ' + ${post.getAuthor()}">Author</p>
-                    <img th:src="@{${post.getImages()}}">
+                    <img th:src="@{${post.getImages()}}" style="margin-bottom: 20px">
+                    <br>
                     <h5 style="font-family:Verdana, Roboto , sans-serif " th:text="${post.getSummary()}">Summary...</h5>
-                    <img th:src="@{${post.getImagesDetails1()}}">
-                    <h5 style="font-family: 'Times New Roman',serif" th:text="${post.getContent()}">Content...</h5>
+                    <img th:src="@{${post.getImagesDetails1()}}" style="margin-bottom: 20px">
+                    <br>
+                    <h5 style="font-family: 'Times New Roman',serif; margin-bottom: 20px" th:text="${post.getContent()}" >Content...</h5>
+                    <img th:src="@{${post.getImagesDetails2()}}">
                     <p>...</p>
 
                 </div>

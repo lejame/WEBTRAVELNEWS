@@ -72,6 +72,11 @@ public class AdminUserPostController {
         DetailsPostUser detailsPostUser = detailsUserPostRepository.findPostByIdUserPost(idpost);
 
         userPostService.updateStatusPostUser(idpost, -1);
+        try{
+            postRepository.deletePostByTitle(detailsPostUser.getTitle());
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
         // xoa bai viet trong post
 //        postRepository.save(new Post(detailsPostUser.getCategory(),
 //                detailsPostUser.getLocation(), detailsPostUser.getTitle(),
@@ -82,5 +87,13 @@ public class AdminUserPostController {
 
         redirectAttributes.addAttribute("id", id);
         return new RedirectView("/adminpage/userpost/{id}");
+    }
+
+    @GetMapping("/detailsView/{idpost}")
+    public String detailsPage(@PathVariable("idpost") Integer idpost, Model model){
+        DetailsPostUser detailsPostUser = detailsUserPostRepository.findPostByIdUserPost(idpost);
+
+        model.addAttribute("post", detailsPostUser);
+        return "detailsView";
     }
 }

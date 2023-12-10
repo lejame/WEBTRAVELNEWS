@@ -2,6 +2,8 @@ package com.example.NewsWebstieJava.Repository;
 
 import com.example.NewsWebstieJava.Models.Post;
 import jakarta.transaction.Transactional;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -34,4 +36,10 @@ public interface PostRepository extends JpaRepository<Post, Integer> {
     @Modifying
     @Query(value = "update Post p set p.view = p.view + 1 where p.id = :id")
     void updateViewPost(@Param("id") Integer idpost);
+
+    Page<Post> findAllByCategoryLike(String category, Pageable pageable);
+
+    @Transactional
+    @Modifying
+    void deletePostByTitle(String title);
 }

@@ -56,6 +56,7 @@
                             <a class="collapse-item" th:href="@{/adminpage/{id} (id = ${account.getId()})}">Tài khoản</a>
                             <a class="collapse-item" th:href="@{/adminpage/post/{id} (id = ${account.getId()})}">Quản lý bài đăng</a>
                             <a class="collapse-item" th:href="@{/adminpage/userpost/{id} (id = ${account.getId()})}">Bài đăng người dùng</a>
+                            <a class="collapse-item" th:href="@{/adminpage/statistical/{id} (id = ${account.getId()})}">Báo cáo thống kê</a>
                         </div>
                     </div>
                 </div>
@@ -130,8 +131,8 @@
                                 <option value="choose">Lọc theo tiêu chí</option>
                                 <option value="viewASC">Theo lượt xem cao -> thấp</option>
                                 <option value="viewDESC">Theo lượt xem thấp -> cao</option>
-                                <option value="dateASC">Theo ngày đăng cao -> thấp</option>
-                                <option value="dateDESC">Theo ngày đăng thấp -> cao</option>
+                                <option value="dateASC">Theo ngày đăng mới nhất</option>
+                                <option value="dateDESC">Theo ngày đăng cũ nhất</option>
 
                             </select>
                             <div class="input-group-append">
