@@ -1,0 +1,171 @@
+INSERT INTO `account`(`code`, `email`, `fullname`, `password`, `role`, `enable`) VALUES ('auiwhdwhadbawdbuiaw','admin','Phạm Tuấn','123','admin', 1);
+
+INSERT INTO `account`(`code`, `email`, `fullname`, `password`, `role`, `enable`) VALUES ('134y7814y784yfh2u2471','leloi@gmail.com','Hữ Lợi','123','user', 1);
+
+INSERT INTO `account`(`code`, `email`, `fullname`, `password`, `role`, `enable`) VALUES ('a3nu289a3yn87a2ya2hfu82','huutai@gmail.com','Hữu Tài','123','user', 0);
+
+
+
+INSERT INTO `location`(`location`, `imagesLocation`, `imagesCuisine`) VALUES ('Hà Nội', '/images/province/ha-noi.jpg', '/images/province/cuisine_Hanoi.jpg');
+
+INSERT INTO `location`(`location`, `imagesLocation`, `imagesCuisine`) VALUES ('Đà Nẵng', '/images/province/da-nang.jpg', '/images/province/cuisine_Danang.jpg');
+
+INSERT INTO `location`(`location`, `imagesLocation`, `imagesCuisine`) VALUES ('Hồ Chí Minh', '/images/province/ho-chi-minh.jpg', '/images/province/cuisine_Hochiminh.jpg');
+
+INSERT INTO `location`(`location`, `imagesLocation`, `imagesCuisine`) VALUES ('Tiền Giang', '/images/province/tien-giang.jpg', '/images/province/cuisine_Tiengiang.jpg');
+
+INSERT INTO `location`(`location`, `imagesLocation`, `imagesCuisine`) VALUES ('Bình Định', '/images/province/binh-dinh.jpg', '/images/province/cuisine_Binhdinh.jpg');
+
+INSERT INTO `location`(`location`, `imagesLocation`, `imagesCuisine`) VALUES ('Đăk Lăk', '/images/province/dak-lak.jpg', '/images/province/cuisine_Daklak.png');
+
+INSERT INTO `location`(`location`, `imagesLocation`, `imagesCuisine`) VALUES ('Khánh Hòa', '/images/province/khanh-hoa.jpg', '/images/province/cuisine_Khanhhoa.jpg');
+
+INSERT INTO `location`(`location`, `imagesLocation`, `imagesCuisine`) VALUES ('Bình Thuận', '/images/province/binh-thuan.jpg', '/images/province/cuisine_Binhthuan.jpg');
+
+
+
+
+INSERT INTO post (date, author, category, content, images_home, location, summary, title, view)
+VALUES ('2023-05-07', 'THANH PHƯƠNG', 'location' , 'Di sản “Ma nhai” thu hút du khách nước ngoài
+Ngũ Hành Sơn - vùng đất linh thiêng, có giá trị văn hóa tâm linh đặc sắc. Nơi sở hữu nhiều di sản quan trọng về lịch sử, văn hóa của thành phố. Gần đây nhất phải nhắc đến hệ thống ma nhai Ngũ Hành Sơn. Trưởng ban quản lý di tích danh thắng Ngũ Hành Sơn Nguyễn Văn Hiền thông tin, ngày 26-11-2022 hệ thống ma nhai Ngũ Hành Sơn được UNESCO công nhận là di sản tư liệu thuộc Chương trình Ký ức thế giới khu vực châu Á - Thái Bình Dương.
+Từ đó đến nay, đơn vị thường xuyên tuyên truyền về hệ thống ma nhai trên các phương tiện truyền thông đại chúng. Đặc biệt là kết hợp Bảo tàng Đà Nẵng, Sở Du lịch, Sở Văn hóa và Thể thao và các đơn vị lữ hành giới thiệu rộng rãi đến du khách trong và ngoài nước.
+“Nhờ thực hiện tốt việc quảng bá hệ thống ma nhai Ngũ Hành Sơn mà giờ đây du khách tìm đến tham quan rất nhiều, nhất là du khách nước ngoài. Từ đầu năm đến nay, du khách nước ngoài đến tham quan chủ yếu là khách Hàn Quốc, Trung Quốc, Ấn Độ và châu  u. Đây là sản phẩm du lịch văn hóa mới trong việc thu hút khách du lịch đến với danh thắng Ngũ Hành Sơn”, ông Hiền nói.
+Lễ hội Quán Thế  m cũng là một trong những điểm đến hấp dẫn của du khách trong nước và quốc tế. Chủ tịch UBND quận Ngũ Hành Sơn Nguyễn Hòa cho hay, sau 2 năm Covid-19, năm nay, UBND quận tham mưu thành phố ban hành kế hoạch tổ chức lễ hội Quán Thế  m và được nâng tầm thành lễ hội cấp thành phố, có quy mô lớn với 32 hoạt động tôn giáo, văn hóa, nghệ thuật, thể thao trong cả phần lễ và hội. Thành công lớn của lễ hội là đã thu hút rất đông người dân và du khách đến chiêm bái, tham gia lễ hội và đem lại những ấn tượng tốt đẹp cho khách tham quan về một lễ hội văn hóa tâm linh của thành phố Đà Nẵng.
+Theo ông Nguyễn Hòa, nhằm đa dạng hóa các loại hình du lịch trên địa bàn, UBND quận triển khai thí điểm mô hình phố đi bộ kết hợp chợ đêm tại phố du lịch An Thượng (phường Mỹ An). Hơn 3 tháng hoạt động, hơn 30.000 lượt du khách đến tham quan, sử dụng dịch vụ, góp phần thúc đẩy ngành thương mại du lịch của địa phương và gia tăng trải nghiệm cho du khách. Ngoài ra, trong chương trình hoạt động văn hóa lễ hội du lịch năm 2023, UBND quận tổ chức hội thi điêu khắc đá mỹ nghệ Non Nước - Ngũ Hành Sơn năm 2023.
+Qua hội thi, nhiều tác phẩm độc đáo được trưng bày, triển lãm và giới thiệu đến du khách về quá trình chế tác, tạo hình nghệ thuật từ đôi bàn tay tài hoa của những nghệ nhân điêu khắc tại Làng nghề truyền thống điêu khắc đá mỹ nghệ Non Nước. “Đây cũng là sản phẩm mới và độc đáo mà quận đang nghiên cứu và xây dựng đề án tổ chức hằng năm để tạo sản phẩm du lịch đặc thù mang bản sắc địa phương gắn với hoạt động tham quan Bảo tàng Ký ức điêu khắc đá mỹ nghệ Non Nước”, ông Hòa cho hay.
+', 'https://www.baodanang.vn/dataimages/202311/original/images1717862_1.gif', 'Đà Nẵng', 'Đã du lịch Đà Nẵng thì bạn đừng bỏ qua cơ hội check in cùng biểu tượng của thành phố - cầu sông Hàn. Hãy cùng MoMo chiêm ngưỡng chiếc cầu xoay đáng tự hào của người Đà Nẵng qua các bí kíp chia sẻ bên dưới đây nhé!', 'Chiêm ngưỡng cầu sông Hàn: biểu tượng tự hào của người dân Đà Nẵng', 3);
+
+
+
+INSERT INTO post (date,  author, category, content, images_home, location, summary, title, view)
+VALUES ('2023-11-20', 'CAO MINH', 'location' , 'Du lịch, dịch vụ đêm của Đà Nẵng được thành phố quan tâm, đầu tư nhiều sản phẩm, dịch vụ mới bằng nhiều loại hình khác nhau như mô hình thí điểm bãi biển đêm Mỹ An, chợ đêm Sơn Trà, chợ đêm Helio, phố du lịch An Thượng (phố đi bộ và chợ đêm), các chương trình biểu diễn nghệ thuật (chương trình Áo dài show, hồn Việt…), tour du ngoạn sông Hàn về đêm, cầu Rồng phun lửa phun nước, trải nghiệm đêm Bà Nà (Bà Nà by night), các hoạt động dịch vụ về đêm hai bờ sông Hàn và tuyến biển như: bar, tụ điểm giải trí, nhà hàng, chăm sóc sức khỏe, làm đẹp… Các hoạt động này được đầu tư, đưa vào hoạt động góp phần làm đa dạng sản phẩm cũng như điểm đến cho du lịch đêm Đà Nẵng, tuy nhiên, sau thời gian phục vụ vẫn chưa thực sự như kỳ vọng. Đơn cử như mô hình tuyến phố đi bộ, chợ đêm tại phố du lịch An Thượng, khai trương từ giữa tháng 8-2023. Đây là sản phẩm du lịch mới, khớp nối các hoạt động của bãi biển đêm Mỹ An tạo thành chuỗi sản phẩm hứa hẹn sẽ thu hút sự quan tâm của du khách đặc biệt là khách quốc tế. Thế nhưng, sau hơn 3 tháng triển khai, các hoạt động kinh doanh dịch vụ tại đây đã bộc lộ những tồn tại, bất cập. Theo chia sẻ của một số đơn vị kinh doanh dịch vụ lưu trú gần phố đi bộ, chợ đêm An Thượng, lâu nay khu vực này được xem là khu phố Tây, có rất đông khách nước ngoài lưu trú, ăn uống, vui chơi, giải trí. Mô hình phố đi bộ, chợ đêm An Thượng được tổ chức thí điểm để phục vụ khách du lịch, thế nhưng quy mô khá nhỏ với khoảng 30 gian hàng chủ yếu là ẩm thực, nước uống kiểu bình dân, ăn vặt... nên chưa tạo được điểm nhấn và không thu hút được sự quan tâm của du khách khi đến đây. Ngoài ra, đây là tuyến phố dân sinh, không gian mở với nhiều cơ sở lưu trú nên các vấn đề về trật tự đô thị, vệ sinh môi trường, ô nhiễm tiếng ồn chưa được giải quyết triệt để… cũng ảnh hưởng rất nhiều đến du khách lưu trú..', 'https://danangfantasticity.com/wp-content/uploads/2019/06/Helio-an-vatdiem-qua-5-khu-cho-dem-noi-tieng-nhat-da-nang.png', 'Đà Nẵng', 'Sở hữu cung đường tuy khó nhằn nhưng không kém phần ngoạn mục, đèo Hải Vân là giấc mơ của biết bao nhiêu phượt thủ. Nếu như bạn đang ấp ủ kế hoạch chinh phục "thiên hạ đệ nhất hùng quan" này, hãy để MoMo giúp một tay với trọn bộ kinh nghiệm khám phá đèo Hải Vân nhé.', 'Cùng MoMo check in tại đèo Hải Vân - "thiên hạ đệ nhất hùng quan"', 0);
+
+
+INSERT INTO post (date,  author, category, content, images_home, location, summary, title, view)
+VALUES ('2023-5-7',  'Hoà', 'location' , 'Kinh nghiệm du lịch Hà Nội mùa nào đẹp nhất?
+- Tháng 9 đến nửa đầu tháng 11 là thời điểm Hà Nội vào thu, mùa thu Hà Nội lãng mạn, đẹp hút hồn và thời gian này cũng là lúc lí tưởng nhất để du lịch Hà Nội.
+
+- Mùa đông Hà Nội kéo dài từ tháng 11 đến nửa đầu tháng 2, đầu đông thời tiết Hà Nội se lạnh vào buổi sáng sớm và lúc đêm xuống. Nếu thích tận hưởng cái lạnh mùa đông Hà Nội bạn đừng bỏ qua chuyến du lịch đến Hà Thành trong thời gian này.
+
+- Thời gian còn lại trong năm thời tiết Hà Nội nóng, nhiệt độ khá cao khiến bạn cảm thấy khó chịu. Nên muốn du lịch Hà Nội trong thời gian này, bạn có thể cân nhắc.Thời điểm lý tưởng đi du lịch Hà Nội
+Bốn mùa của Hà Nội đều đẹp, đều cuốn hút nhưng có lẽ tuyệt vời nhất vẫn là mùa thu, khoảng thời gian từ tháng 8 đến tháng 11.Thời điểm đó Hà Nội như khoác lên mình một tấm áo tươi mới, điểm xuyết bởi hương hoa sữa váng vất, những thảm lá vàng rơi rực rỡ, bầu trời xanh ngắt, cao vợi, ánh nắng hoe vàng, cơn gió heo may chớm lạnh… Hà Nội bỗng chốc trở nên lãng mạn, dịu dàng sau khi tạm biệt cái nóng oi bức của mùa hè.
+
+Cần mang theo những gì khi đi du lịch Hà Nội?
+Với kinh nghiệm du lịch Hà Nội, bật mí cho bạn rằng không thể quên mang theo giấy tờ tùy thân khi đi Hà Nội cũng như trong bất kì chuyến du lịch nào. Giấy tờ tùy thân sẽ cần thiết cho bạn khi check-in khách sạn Hà Nội, di chuyển trên các phương tiện đến Hà Nội. Khi đi du lịch Hà Nội bạn cũng không cần mang theo nhiều tiền mặt, cách tốt nhất bạn nên sử dụng thẻ ATM hoặc thẻ tín dụng để tránh bị mất tiền trong thời gian đi tham quan.','https://dulichhue.com.vn/wp-content/uploads/2023/04/le-hoi-kinh-khi-cau-hue.jpeg', 'Hà Nội', 'Bật mí kinh nghiệm du lịch Hà Nội chi tiết nhất trong năm 2023 này. Thủ đô cổ kính với 36 phố phường và một chút hiện đại luôn thôi thúc, hấp dẫn khách du lịch khắp mọi nơi. Chuyến du lịch Hà Nội đưa bạn đến với một thủ đô 4 mùa tươi sắc và những cảnh đẹp bình dị thân thương.', 'Kinh nghiệm du lịch Hà Nội siêu chi tiết từ A đến Z', 0);
+
+
+INSERT INTO post (date,  author, category, content, images_home, location, summary, title, view)
+VALUES ('2023-10-02',  'Mr Trí', 'location' , 'Lễ hội Áo dài du lịch Hà Nội được tổ chức từ năm 2016, đã trở thành sự kiện mang tính thương hiệu của thủ đô mỗi dịp thu về. Đây cũng là dịp tôn vinh tà áo dài truyền thống của dân tộc Việt Nam, là nguồn sáng tạo, là sản phẩm của các loại hình du lịch đặc sắc, hấp dẫn và hiệu quả.
+
+Phát biểu tại lễ khai mạc, bà Vũ Thu Hà, Phó Chủ tịch UBND TP Hà Nội  cho biết từ đầu năm 2023 đến nay, Hà Nội đã tổ chức hơn 2.000 sự kiện, hoạt động văn hóa, đón khoảng 24 triệu lượt khách du lịch, bao gồm 4 triệu lượt khách quốc tế và 20 triệu lượt khách nội địa. Ngành du lịch đóng góp tích cực vào tăng trưởng GRDP Thủ đô, đạt mục tiêu Hà Nội trở thành một trong những trung tâm công nghiệp văn hóa hàng đầu của cả nước, tạo nền tảng vững chắc, động lực quan trọng thúc đẩy phát triển “Thành phố sáng tạo” thời gian tới.
+
+"Lễ hội áo dài du lịch Hà Nội mở ra định hướng mới, góp phần không nhỏ để du lịch Việt Nam, du lịch Hà Nội trở thành điểm đến yêu mến và sự lựa chọn hàng đầu của nhiều du khách trong nước và bạn bè quốc tế, là "Điểm đến du lịch thành phố hàng đầu thế giới", bà Hà chia sẻ.
+
+Lễ hội áo dài du lịch Hà Nội 2023 dự kiến sẽ đón khoảng 60.000 lượt khách trong 3 ngày diễn ra sự kiện từ ngày 27/10 đến 29/10.Chương trình khai mạc “Lễ hội Áo dài du lịch Hà Nội 2023” được dàn dựng chuyên nghiệp với sự tham gia của nhiều nghệ sĩ như: Hà Lê, Đông Hùng, Nguyễn Ngọc Anh, Bảo Trâm... Với chủ đề "Khám phá nét son Hà Nội", một sân khấu mang đậm dấu ấn lịch sử với cầu Long Biên, với ban công nhà cổ đầy hoa đã được dựng lên, đưa người xem "xuyên không" tìm lại từng dấu son của Hà Nội.
+
+Tại lễ khai mạc, khán giả được chiêm ngưỡng các bộ sưu tập áo dài của các nhà thiết kế đến từ khắp mọi miền Tổ quốc như: Viết Bảo, Quang Hòa, Cao Minh Tiến, Ngọc Hân, Thanh Hải, Ỷ Vân Hiên, Dũng Nguyễn, Hoàng Ly, Vũ Thảo Giang và nhiều thương hiệu áo dài như OZ Design House, áo dài La Sen Vũ, Kiên Anh…
+Bên cạnh đó, lễ hội còn có nhiều hoạt động hấp dẫn như: đêm nhạc "Sắc màu Hà Nội" diễn ra vào tối 28-10 tại khu vực Vườn hoa đền Bà Kiệu; không gian triển lãm, gian hàng trưng bày, giới thiệu sản phẩm; không gian triển lãm tư liệu ảnh; không gian triển lãm và trưng bày áo dài; không gian thông tin, quảng bá, giới thiệu các tour, tuyến, sản phẩm, dịch vụ du lịch; con đường áo dài cộng đồng "Dạo bước hồ Gươm"; không gian gian hàng trưng bày, giới thiệu sản phẩm - nơi đọng lại ký ức trăm năm; diễu hành "Bách hoa bộ hành"…
+
+Một trong những điểm nhấn của lễ hội năm nay là chương trình biểu diễn nghệ thuật, đồng diễn và diễu hành áo dài của Hội Liên hiệp Phụ nữ Hà Nội với sự tham gia của 1.000 người đến từ các cơ quan, đơn vị, doanh nghiệp và nhân dân, trong đó có đại diện của khoảng 50 gia đình tiêu biểu của Hà Nội.', 'https://thanhnien.mediacdn.vn/Uploaded/2014/Pictures20124/MinhNguyet/Thang4/dulichcamau2.jpg', 'Hà Nội', 'Tối 27/10, UBND thành phố Hà Nội tổ chức Lễ hội Áo dài du lịch Hà Nội năm 2023 tại vườn hoa đền Bà Kiệu và không gian đi bộ khu vực hồ Hoàn Kiếm.', 'Lễ hội áo dài du lịch Hà Nội 2023 thu hút du khách', 9);
+
+
+INSERT INTO post (date,  author, category, content, images_home, location, summary, title, view)
+VALUES ('2023-11-22', 'Hoà', 'location' , 'Du lịch Huế là khoảng thời gian lý tưởng để du khách có cho mình phút giây nghỉ ngơi, thư thái và chữa lành tâm hồn. Hòa mình vào nhịp sống chậm rãi của mảnh đất cố đô, du khách được nhìn thấy, được hiểu biết thêm nhiều điều giá trị ở vùng đất lịch sử này. Đến Huế, ở càng lâu, bạn càng nhận ra được nhiều vẻ đẹp của xứ mộng mơ. Có thời gian chậm rãi thưởng thức và chiêm nghiệm, bạn sẽ thấy, Cố đô Huế càng đẹp biết bao và thêm yêu mảnh đất miền Trung này. Vào mùa nào, xứ Huế cũng đẹp, cũng nên thơ và sâu lắng, dẫu có dư dả thời gian tính bằng tuần, bằng tháng, du khách vẫn có rất nhiều điều để nhìn, để ngắm và để thương vùng đất này. Tuy nhiên, nếu chỉ có 2 ngày ở Huế, thì sao? Với chuyến đi Huế có quỹ thời gian hạn hẹp, du khách có thể tham quan nhiều địa điểm nổi tiếng ở Huế và thưởng thức những món ăn ngon làm nên thương hiệu ẩm thực cố đô.', 'https://dulichhue.com.vn/wp-content/uploads/2023/07/du-lich-hue-2-ngay.jpg', 'Hồ Chí Minh', 'Hưởng ứng Tuần lễ Du lịch TP Hồ Chí Minh năm 2023, Sở Du lịch TP Hồ Chí Minh phối hợp với UBND Quận 1 đã tổ chức tour du lịch về đêm với tên gọi "Quận 1 - Sắc màu đêm" để du khách có thể trải nghiệm, tìm hiểu văn hóa và lịch sử của Thành phố.', 'Du khách trải nghiệm du lịch đêm đặc trưng tại TP Hồ Chí Minh ', 10);
+
+
+INSERT INTO post (date,  author, category, content, images_home, location, summary, title, view)
+VALUES ('2023-11-20', 'An', 'location' , 'Diễn ra trong 3 ngày từ 17-19/11, Tuần lễ Du lịch Bà Rịa-Vũng Tàu 2023 với chủ đề “LET’S GO!!! Ba Ria-Vung Tau” là dịp thu hút đông đảo nhân dân và du khách, giúp quảng bá mạnh mẽ thương hiệu, sản phẩm du lịch địa phương. Tại Tuần lễ, du khách tham dự chuỗi hoạt động trải nghiệm gồm: Không gian ẩm thực và hội chợ OCOP; check in với tượng cát; bay cùng dù lượn; lễ hội diều; Diễn đàn Phát triển Du lịch Xanh; Trình diễn drone light; Giải chạy VungTau Discovery Night Run; Giải Golf giao hữu “Green golf Bà Rịa-Vũng Tàu”... Bà Trần Thị Thu Hiền, Phó Giám đốc Sở Du lịch Bà Rịa-Vũng Tàu cho biết du lịch Bà Rịa-Vũng Tàu có đặc trưng từ tháng 9, 10, 11 là mùa thấp điểm ít du khách dù thời điểm này thời tiết, cảnh quan thiên nhiên rất đẹp. Bà Rịa-Vũng Tàu đang xây dựng rất nhiều sản phẩm du lịch, trong đó có các lễ hội, sự kiện văn hóa được tổ chức thường niên để thu hút du khách, khắc phục tình trạng mùa thấp điểm, thay đổi thói quen của du khách để cảm nhận lễ hội và cảnh quan thiên nhiên tươi đẹp của tỉnh. Từ 17 giờ ngày 17/11, không khí lễ hội tràn ngập Bãi Sau. Trên trời dù lượn lững lờ. Dưới bãi biển, du khách rộn ràng. Trời tối dần, các gian hàng ẩm thực chật kín khách đến thưởng thức những món ngon của Bà Rịa-Vũng Tàu và các vùng miền trên cả nước. Khu bày bán đặc sản OCOP cũng đông khách tham quan, mua sắm. Không gian bày bán sản phẩm OCOP đặc sản của Bà Rịa-Vũng Tàu và ẩm thực vùng miền tập trung tại Khu Du lịch San Hô Xanh-Bãi Sau cũng là tâm điểm thu hút du khách. Thời tiết 3 ngày diễn ra Tuần lễ Du lịch nắng gắt buổi trưa, có lúc mưa rào, nhưng từ chiều tối trời tạnh ráo, mát mẻ thuận lợi cho nhân dân và du khách mua sắm, ăn uống..', 'https://image.baogialai.com.vn/w840/Uploaded/2023/dwkoudfxqdayukco/2023_11_20/1dulich-9664.jpg', 'Hồ Chí Minh', 'Trong khuôn khổ Tuần lễ du lịch TP Hồ Chí Minh lần thứ 3, người dân và du khách đến TP Hồ Chí Minh có thể trải nghiệm môn thể thao dù lượn để có thể bay lượn và ngắm nhìn thành phố từ trên cao.', 'Du khách thích thú ngắm TP Hồ Chí Minh từ trên cao bằng dù lượn', 0);
+
+
+
+INSERT INTO post (date,  author, category, content, images_home, location, summary, title, view)
+VALUES ('2023-11-19',  'HOÀNG NGỌC', 'location' , 'Một số địa điểm du lịch Quy Nhơn nên ghé:
+
+Bãi tắm Kỳ Co: Một trong những bãi tắm đẹp và nổi tiếng nhất ở Quy Nhơn chính là bãi tắm Kỳ Co. Với khí hậu mát mẻ, thiên nhiên hữu tình, đặt chân đến đây bạn sẽ choáng ngợp với sự hoang sơ, hùng vĩ của núi non và biển cả nơi đây. Bạn nên đến đây vào khoảng tháng 2 đến tháng 8 vì lúc này thời tiết mát mẻ, ít mưa thuận lợi cho các hoạt động tham quan, tắm biển.
+Eo Gió: Nằm ở phía Đông bán đảo Phương Mai, Eo Gió với một thiên nhiên vô cùng hoang sơ, hùng vĩ sẽ khiến du khách ngỡ ngàng khi đặt chân tới nơi đây. Nhìn tư xa, Eo Gió như một eo biển nhỏ được bao bọc xung quanh là những rặng núi đá uốn lượn cùng làn nước trong xanh, bờ cát vàng óng ánh. Thật sự là một địa điểm mà bất cứ ai cũng nên trải nghiệm một lần trong đời.', 'https://image.baogialai.com.vn/w840/Uploaded/2023/kireyfrextyrlexft/2023_11_19/14e227a5-2454-4dee-939b-21e8983c6c1f-4699-0000041051b4d0f5-9950.jpg', 'Bình Định', 'Thành phố biển Quy Nhơn, Bình Định, thuộc khu vực duyên hải Nam Trung Bộ nép mình giữa một bên biển một bên núi với những bờ biển dài uốn cong thơ mộng, bờ cát vàng mịn và làn nước trong xanh đẹp mê hồn.', 'Du lịch Quy Nhơn', 5);
+
+
+INSERT INTO post (date,  author, category, content, images_home, location, summary, title, view)
+VALUES ('2023-1-22',  'Gia Bách', 'location' , 'Mũi Né là một cái tên tuy quen mà lạ. Quen vì, đây là điểm du lịch biển nổi tiếng, đặc biệt với du khách quốc tế. Lạ vì, những năm gần đây du lịch Mũi Né không ngừng phát triển với những điểm tham quan được đầu tư, đổi mới, tiêu biểu nhất là Bàu Trắng.
+
+Bàu Trắng là một hồ nước ngọt nhỏ nằm lọt thỏm giữa những đồi cát trắng bao la. Những năm gần đây, nhiều người mẫu và tạp chí thời trang quốc tế chọn Bàu Trắng là điểm chụp ảnh thời trang, chứng tỏ vẻ đẹp cuốn hút của vùng đất nắng gió này. 
+
+Cùng MoMo tìm hiểu những nét cuốn hút và các hoạt động thú vị tại Bàu Trắng nhé.
+
+Bàu Trắng: Hồ nước trong giữa “tiểu sa mạc”
+Các hoạt động thú vị tại Bàu Trắng
+Cách di chuyển đến Bàu Trắng
+Kinh nghiệm du lịch Bàu Trắng 1. Bàu Trắng: Hồ nước trong giữa “tiểu sa mạc”
+“Bàu” có nghĩa là ao nước, vũng nước; “Trắng” là màu cát trắng của những đồi cát xung quanh. Bàu Trắng là một hồ nước ngọt nằm giữa những đồi cát trải dài tít tắp. Trước đây, Bàu Trắng là một hồ nước lớn, do người dân đập cát chắn ngang nên đã bị chia thành 2 hồ nhỏ là Bàu Ông và Bàu Bà. 
+
+Giữa những đồi cát nối tiếp nhau, cái nắng thiêu đốt càng làm khung cảnh mờ ảo tựa như sa mạc Sahara. Ấy vậy mà cứ cách vài trăm mét lại có rặng phi lao, keo lưỡi liềm xanh mướt mọc lên, kiên cường đứng vững trước bao ngọn gió, cơn bão cát. Trong lòng một triền cát trắng không thấy điểm dừng, Bàu Trắng như một ốc đảo xanh giữa hoang mạc khô hạn với những hồ nước trong xanh mát rượi. Tầm tháng 4 - tháng 5, sen trong hồ thi nhau đua nở, khung cảnh đã đẹp nay lại thêm phần diệu kỳ. 
+
+Hoa sen mọc trong hồ nước giữa sa mạc. Cảnh tượng này quả thực xứng đáng để bạn vượt cái nắng, cái nóng của Bình Thuận, trải qua 65 km từ trung tâm thành phố Phan Thiết đến để chiêm ngưỡng. ', 'https://images2.thanhnien.vn/zoom/256_160/Uploaded/diepnh/2019_12_10/unnamed_MEWD.jpg', 'Bình Thuận', 'Bàu Trắng là một trong những điểm du lịch đẹp nhất và đặc sắc nhất của du lịch Phan Thiết. Hồ nước ngọt nằm lọt thỏm giữa những đồi cát trải dài là đích đến của không ít du khách khi đặt chân đến xứ nắng gió này. Cùng MoMo khám phá Bàu Trắng có gì thu hút đến thế!', 'Trải nghiệm du lịch Bàu Trắng Mũi Né: Tận hưởng gió biển tại đồi cát trắng đẹp nhất Phan Thiết', 3);
+
+
+INSERT INTO post (date,  author, category, content, images_home, location, summary, title, view)
+VALUES ('2023-11-10',  'Ngọc Thảo', 'location' , 'Bãi biển Tân Thành là một trong địa điểm du lịch nổi tiếng với biển xanh, gió mát và cũng là nơi ngắm được các bạn trẻ ví von là địa điểm ngắm bình minh đẹp nhất tại Việt Nam. Bài viết hôm nay, Bách hóa XANH sẽ chỉ cho bạn đầy đủ những kinh nghiệm khi đi du lịch biển Tân Thành Gò Công, Tiền Giang.
+
+1 Đôi nét về biển Tân Thành Gò Công, Tiền Giang
+Biển Tân Thành còn được gọi là bãi biển Gò Công nằm ở xã Tân Thành, huyện Gò Công, tỉnh Tiền Giang, cách TP Mỹ Tho 50km, cách TP. Hồ Chí Minh tầm 70km. Bãi biển dài 7km, Tân Thành một trong những bãi biển cát đen hiếm và đẹp nhất của Việt Nam. Đây cũng là nơi nổi tiếng về hải sản tươi ngon để bạn có thể thoải mái thưởng thức.Biển Tân Thành mang cho mình một màu đen huyền bí, khác biệt hoàn toàn so với các bãi biển xanh, cát vàng óng ánh như Nha Trang, Đà Nẵng.
+
+Vào những buổi sáng bình minh sẽ là thời điểm thích hợp để bạn cảm nhận được vẻ đẹp của biển cũng như tận hưởng không khí trong lành ở đây. Tuy nhiên, nếu bạn không có thời gian đi vào buổi sáng thì có thể trải nghiệm vào lúc hoàng hôn của buổi chiều.
+
+Đến đây, bạn sẽ được trải nghiệm cảm giác cào nghêu và tận mắt nhìn thấy được khung cảnh người dân thả lưới đánh bắt cá. Khi đến biển Tân Thành, bạn sẽ được thưởng thức các món hải sản chẳng hạn như tôm, ghẹ, mực... tươi ngon và đặc biệt là món nghêu nổi tiếng.', 'https://cdn.tuoitre.vn/thumb_w/730/471584752817336320/2023/11/14/40071678321095180327735465668024469344277153n-1699928771074638144420.png', 'Tiền Giang', 'Biển Tân Thành (hay bãi biển Gò Công) nằm ở xã Tân Thành huyện Gò Công. Tham khảo kinh nghiệm du lịch biển Tân Thành Gò Công, Tiền Giang đầy đủ.', 'Kinh nghiệm du lịch biển Tân Thành Gò Công, Tiền Giang đầy đủ', 6);
+
+
+INSERT INTO post (date,  author, category, content, images_home, location, summary, title, view)
+VALUES ('2023-11-22',  'John Doe', 'location' , 'Du khách thích thú
+
+Ngày 20-11, tàu du lịch Seven Seas Explorer (quốc tịch quần đảo Marshall) đến Nha Trang trong hành trình du ngoạn ở Việt Nam. Rất nhiều du khách đã lựa chọn tour tham quan thành phố, trong đó có Làng nghề Trường Sơn. Những du khách mang quốc tịch Pháp, Anh, Đức, Tây Ban Nha hồn nhiên nhảy sạp cùng nhân viên làng nghề, thích thú cầm búa gõ đàn đá lắng nghe âm thanh của đại ngàn… “Điểm đến này thật thú vị. Ở đây còn lưu giữ được nhiều nghề thủ công truyền thống, điều đang dần biến mất trong đời sống hiện đại bây giờ. Tôi cũng rất thích màn biểu diễn nhạc cụ truyền thống của Việt Nam, nó thật kỳ diệu…”, ông Peter White (du khách Anh) chia sẻ.  Thời gian gần đây, các công ty lữ hành chuyên tổ chức tour cho khách du lịch tàu biển thường xuyên đưa khách đến tham quan Làng nghề Trường Sơn, trong đó có khách hạng sang của các tàu biển: Celebrity Solstice, Norwegian Jewel, Spectrum of the Seas…  Theo anh Lê Hữu Phúc - hướng dẫn viên chuyên dẫn khách quốc tế, với mô hình vừa trưng bày, sản xuất các đồ thủ công mỹ nghệ, kết hợp với biểu diễn nghệ thuật truyền thống, Làng nghề Trường Sơn là điểm đến rất phù hợp với du khách quốc tế. Khách đến làng nghề vừa được nhìn các nghệ nhân dệt chiếu, chằm nón, đan lưới…; xem các nghệ nhân làm tranh cát, vẽ thư họa chân dung, thêu tranh, chế tác nhạc cụ truyền thống vừa được hòa mình vào không gian văn hóa Việt, trải nghiệm trò chơi nhảy sạp, xem nặn tò he, thưởng thức màn hòa tấu nhạc cụ dân tộc với sự hiện diện của đàn tranh, đàn bầu, đàn đá, đàn t’rưng… Nhiều du khách đã chọn mua những tác phẩm gốm điêu khắc mang dấu ấn văn hóa Chăm của nhà điêu khắc Đoàn Xuân Hùng, tranh cát Hồng Châu Sa, chuông gió… để làm quà lưu niệm.Không chỉ du khách tàu biển, nhiều khách du lịch Hàn Quốc, Trung Quốc, Nga… cũng tìm đến Làng nghề Trường Sơn để tham quan, tìm hiểu văn hóa truyền thống của người Việt. Có du khách Trung Quốc khi đến làng nghề đã rất thích thú khi nhìn thấy chiếc máy may đạp bằng chân, liền ngồi lên đạp vài đường chỉ. Hỏi chuyện du khách này cho biết, xưa nhà ông làm nghề may nên nhìn chiếc máy may lại nhớ đến nghề cũ, nhớ đến cha mẹ già đã qua đời nhiều năm trước. "Những tháng cuối năm, thời tiết không thuận lợi. Do đó, thay vì đi tour biển đảo, nhiều du khách Hàn Quốc đã chuyển sang các điểm tham quan trong nhà, trong đó Làng nghề Trường Sơn là điểm đến được nhiều du khách lựa chọn. Nhiều du khách phản hồi, họ rất ấn tượng với các nghề truyền thống của Việt Nam được lưu giữ ở đây. Hiện nay, du khách có xu hướng ưa thích các sản phẩm du lịch văn hóa. Nếu quảng bá tốt, làng nghề sẽ là một điểm đến thu hút rất đông du khách quốc tế trong thời gian tới", ông Lê Thành Trung - Công ty TNHH Good day Nha Trang Tour bày tỏ.', 'https://cdn.tuoitre.vn/thumb_w/1100/471584752817336320/2023/10/23/base64-1698044633688856155438.png', 'Khánh Hòa', 'Với không gian rộng mở, hội tụ nhiều nghề thủ công truyền thống, Làng nghề Trường Sơn (TP. Nha Trang) đã trở thành điểm giới thiệu ngành nghề, văn hóa truyền thống của xứ Trầm Hương. Thời gian gần đây, nhiều đơn vị lữ hành đã đưa du khách quốc tế đến tham quan làng nghề, nhất là khách du lịch tàu biển.', 'Làng nghề Trường Sơn - Điểm đến mới của khách quốc tế', 4);
+
+
+INSERT INTO post (date,  author, category, content, images_home, location, summary, title, view)
+VALUES ('2023-11-15',  'Trí Nguyễn', 'location' , 'Không chỉ vang danh nhờ hương vị cà phê Ban mai nổi tiếng, Buôn Mê Thuột còn là một đại diện tiêu biểu cho những nét văn hóa đặc sắc nhất của vùng đất Tây Nguyên. Vừa là thành phố lớn nhất và đô thị miền núi đông dân nhất, chắc sẽ nhịp sống và văn hóa ở đây sẽ rất thú vị để bạn thưởng thức. Bên cạnh đó, những địa điểm du lịch Buôn Mê Thuột cũng đã dần trở thành “một thỏi nam châm” thu hút lượng lớn du khách đến với vẻ đẹp của vùng núi Việt Nam. Vì thế, nếu vào những ngày nghỉ mà bạn vẫn chưa tìm được một nơi check-in xịn sò thì Traveloka gợi ý bạn những địa điểm bạn có thể triển ngay dưới đây nhé!.', 'https://ik.imagekit.io/tvlk/blog/2022/12/dia-diem-du-lich-buon-me-thuot-1.jpg?tr=dpr-2,w-675', 'Đăk Lăk', 'Trang trại vườn hồng rộng gần 20.000 mét vuông với hơn 400 giống hồng, nằm trên đường Hà Huy Tập, phường Tân Lợi, thành phố Buôn Ma Thuột (tỉnh Đăk Lắk) thời gian qua là một trong những điểm đến hút khách bởi cái đẹp nơi đây được nhiều người ví như là “Đà lạt giữa lòng thành phố”..', 'Vườn hồng đẹp như tranh vẽ mở cửa miễn phí giữa thành phố Buôn Ma Thuột', 12);
+
+
+INSERT INTO post (date,  author, category, content, images_home, location, summary, title, view)
+VALUES ('2023-10-21',  'Tony Đặng', 'location' , '1. Eo Gió
+Nhắc đến những cảnh đẹp nổi tiếng Bình Định, chắc chắn sẽ chẳng thể nào bỏ qua Eo Gió - một trong những tọa độ check in được nhiều khách du lịch tìm đến nhất. Với khung cảnh nên thơ, là sự kết hợp đặc sắc giữa núi và biển tạo nên một khung cảnh thiên nhiên hoang sơ và vô cùng hùng vĩ. Check in tại Eo Gió Bình Định, du khách chắc chắn sẽ có được thật nhiều bức ảnh tuyệt đẹp đấy!
+
+Địa chỉ: Eo Gió cách trung tâm thành phố Quy Nhơn 20 km 
+
+2. Kỳ Co
+Đi cùng với Eo Gió, Kỳ Co cũng là một trong những địa điểm du lịch Bình Định nổi tiếng hàng đầu mà bạn nhất định không nên bỏ qua khi đến đây du lịch. Kỳ Co ấn tượng với khung cảnh tuyệt đẹp không khác gì những cảnh trong phim mà chúng ta vẫn thường hay gặp. Đến check in tại Kỳ Co - Quy Nhơn, du khách không chỉ được chiêm ngưỡng cảnh đẹp lại vừa có thể lưu giữ được nhiều bức ảnh xinh nữa đấy!
+
+Địa chỉ: thôn Lý Lương, Hưng Lương, thành phố Quy Nhơn, Bình Định
+
+3. Hòn Khô
+Nếu muốn tìm kiếm một địa điểm du lịch thú vị trong hành trình khám phá vùng đất võ Bình Định thì Hòn Khô sẽ là một gợi ý không tồi dành cho bạn. Tại hòn Khô, du khách sẽ có thể được trải nghiệm lặn ngắm san hô dưới biển hay được chinh phục những ngọn núi đá từ trên cao. Đặc biệt, tại hòn Khô cũng có rất nhiều món ngon đang chờ đợi bạn khám phá nữa đấy.
+
+Địa chỉ: thôn Hải Đông, xã Nhơn Hải, thành phố Quy Nhơn, Bình Định4. Tháp Đôi
+Tháp Đôi Bình Định là một công trình kiến trúc nổi tiếng được xây dựng từ cuối thế kỷ XII và cho đến nay vẫn còn tồn tại. Ngọn tháp này gây ấn tượng đối với khách du lich Binh Dinh nhờ vào kiến trúc đặc sắc, tổng thể gồm có 2 tháp nằm cạnh nhau trải dài theo trục Bắc Nam. Tháp Đôi thu hút đông đảo khách du lịch tìm đến check in và tại đây bạn có thể được tìm hiểu về một thời văn minh của vương quốc Champa xưa kia. Tin chắc rằng đây sẽ là một trải nghiệm vô cùng thú vị mà bất cứ du khách nào cũng không nên bỏ lỡ.
+
+Địa chỉ: đường Trần Hưng Đạo, phường Đống Đa, thành phố Quy Nhơn, Bình Định
+
+5. Cù Lao Xanh
+Cù Lao Xanh hay còn được biết đến với một tên gọi khác đó là Vịnh Vân Phi. Địa điểm du lịch nổi tiếng này hứa hẹn sẽ mang đến cho du khách những trải nghiệm thú vị và có một chuyến đi chơi thật hoàn hảo. Đến tham quan Cù Lao Xanh, bạn sẽ có thể tham gia vào các hoạt động vui chơi, được nhìn ngắm cảnh quan tuyệt đẹp chỉ có riêng tại nơi này. 
+
+Địa chỉ: xã Nhơn Châu, thành phố Quy Nhơn, tỉnh Bình Định
+
+6. Ghềnh Ráng Tiên Sa
+Ghềnh Ráng Tiên Sa nằm cách trung tâm thành phố Quy Nhơn, Bình Định khoảng chừng 3km. Địa điểm du lịch này nổi tiếng nhờ vào khung cảnh thiên nhiên thơ mộng mang một vẻ đẹp lung linh, huyền ảo khiến bất cứ ai lần đầu tiên được chiêm ngưỡng cũng đều có ấn tượng khó quên. Vậy nên trong tour du lịch Bình Định sắp tới, nhất định đừng bỏ qua cơ hội được ghé đến địa điểm tham quan nổi tiếng này bạn nhé!
+
+Địa chỉ: số 6 Ngô Gia Tự, Nguyễn Văn Cừ, thành phố Quy Nhơn, tỉnh Bình Định7. Hòn Sẹo
+Hòn Sẹo là tên gọi của một hòn đảo nhỏ nằm cách đất liền chỉ khoảng 5km. Ở Hòn Sẹo, điều đặc biệt khiến nhiều du khách ấn tượng đó là nơi đây sẽ không có bãi cát trải dài như ở nhiều bãi biển khác mà thay vào đó sẽ là những khối đá lớn trải dài trên mặt biển. Mặc dù là không gian hoang sơ chưa được tập trung khai thác du lịch mạnh mẽ nhưng Hòn Sẹo ở Bình Định lại luôn có một sức hút rất lớn đối với đông đảo khách du lịch.
+
+Địa chỉ: xã Nhơn Lý, nằm cách trung tâm thành phố Quy Nhơn khoảng 15 km
+
+8. Biển Quy Nhơn
+Đi tour du lịch Bình Định mà không một lần ghé đến bãi biển Quy Nhơn thì chắc chắn là một điều tiếc nuối lớn. Tại Quy Nhơn có rất nhiều khách sạn lớn với view hướng ra biển vô cùng xinh đẹp sẽ giúp du khách có thể thỏa sức tận hưởng sự mát mẻ của mùa hè cùng với người thân và bạn bè. Mặc udf không quá nổi tiếng như nhiều bãi biển khác nhưng biển Quy Nhơn vẫn luôn có một nét đẹp riêng, một sức hút riêng khiến nhiều du khách mê mẩn.
+
+Địa chỉ: cạnh trung tâm thành phố Quy Nhơn, tỉnh Bình Định
+
+9. Đảo Yến Bình Định
+Một trong những địa điểm du lịch Bình Định nổi tiếng được nhiều người biết đến nhất đó chính là Đảo Yến. Đảo Yến Quy Nhơn ấn tượng bởi cảnh quan thiên nhiên kỳ thú, nổi bật với sự xuất hiện của những hang động thiên tạo đã có từ hàng vạn năm nay. Những hang động hiểm trở nằm sâu trong lòng đảo chính là thứ ấn tượng thu hút đông đảo du khách tìm đến tham quan, đặc biệt là vào mỗi dịp hè đến.
+
+Địa chỉ: xã Nhơn Lý, thành phố Quy Nhơn, tỉnh Bình Định', 'https://cdn3.ivivu.com/2022/09/bu%C3%B4n-mathuot.jpg', 'Bình Định', 'Những địa điểm du lịch Bình Định luôn có một sức hút rất lớn đối với đông đảo khách du lịch nhờ sở hữu vẻ đẹp đặc trưng ít nơi nào có được. Tham khảo ngay list 30 thắng cảnh tuyệt đẹp mà bạn nhất định không thể bỏ lỡ trong chuyến du lịch Bình Định sắp tới bạn nhé!', 'Top 30 thắng cảnh tuyệt đẹp không thể bỏ qua khi đi du lịch Bình Định', 6);
+
+
+
+
