@@ -52,13 +52,13 @@ public class RegisterController {
     public RedirectView gotoPage(@Param("code") String code, RedirectAttributes redirectAttributes){
         Account account = accountService.getCodeAccount(code);
         if(account == null){
-            redirectAttributes.addAttribute("id", account.getId());
-            return new RedirectView("/homeuser/{id}");
+            return new RedirectView("/home");
         }
 
         account.setEnable(1);
         accountService.updateEnable(account.getId());
-        return new RedirectView("/home");
+        redirectAttributes.addAttribute("id", account.getId());
+        return new RedirectView("/homeuser/{id}");
     }
     private String getSiteURL(HttpServletRequest request) {
         String siteURL = request.getRequestURL().toString();
